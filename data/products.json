@@ -268,6 +268,18 @@
       "priceNote": "one of a kind · ~1.5 × 2.5 m",
       "blurb": "A wilder cousin of the Beni Ourain — abstract, colourful, full of story.",
       "description": "Azilal rugs are the wilder, more colourful cousins of the Beni Ourain — woven on a natural wool ground with bursts of dyed thread arranged from imagination, not pattern. Each is a one-of-a-kind diary of its weaver. Roughly 1.5 × 2.5 m."
+    },
+    {
+      "id": "handira-wedding-blanket",
+      "name": "Handira Wedding Blanket",
+      "region": "Middle Atlas",
+      "price": 285,
+      "category": "Rugs",
+      "catTf": "ⵜⴰⵣⵔⴱⵉⵜ",
+      "badge": "New",
+      "priceNote": "sequined wool · ~1.3 × 2 m",
+      "blurb": "A sequined Amazigh wedding blanket (handira), hand-woven by women of the Middle Atlas.",
+      "description": "The handira is woven by Amazigh women for a bride to wear at her wedding, then kept for life as a blanket and heirloom. Hand-woven wool studded with hundreds of small metal sequins — believed to catch the light and ward off the evil eye. Every piece is unique. Roughly 1.3 × 2 m."
     }
   ]
 }
