@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout · ⵙⵍⴽⵎ — Aṣli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/asli.css">
+</head>
+<body>
+
+<div class="announce">
+  <span>Secure checkout</span>
+  <span class="sep">✦</span>
+  <span>Ships from Marrakech via DHL Express</span>
+  <span class="sep">✦</span>
+  <span class="tf">ⴰⵎⴰⵏ</span>
+</div>
+
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="8" y="8" width="24" height="24"/>
+          <rect x="8" y="8" width="24" height="24" transform="rotate(45 20 20)"/>
+          <circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="logo">Aṣli</div>
+      <div class="logo-tf">ⴰⵚⵍⵉ</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="heritage.html">Heritage</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button data-cart-open>Cart <span class="cart-count">0</span></button>
+  </div>
+</nav>
+
+<div class="breadcrumbs">
+  <a href="index.html">Home</a><span class="sep">/</span>
+  <a href="cart.html">Cart</a><span class="sep">/</span>
+  Checkout
+</div>
+
+<!-- === CHECKOUT === -->
+<main id="checkoutRoot">
+
+  <!-- empty state -->
+  <div id="emptyState" style="display:none;" class="cart-empty" >
+    <span class="tf">ⵉⵍⵎ</span>
+    <h2>Your cart is empty</h2>
+    <p>There’s nothing to check out yet.</p>
+    <a href="shop.html" class="btn">Browse the collection →</a>
+  </div>
+
+  <section class="checkout-page" id="checkoutPage">
+    <form id="checkoutForm" novalidate>
+      <!-- 1. Contact -->
+      <div class="form-section">
+        <div class="form-legend"><span class="num">1</span> Contact</div>
+        <div class="field" data-validate="email">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
+          <div class="field-error">Please enter a valid email address.</div>
+        </div>
+        <div class="field">
+          <label for="phone">Phone (for DHL delivery updates)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel">
+        </div>
+      </div>
+
+      <!-- 2. Shipping address -->
+      <div class="form-section">
+        <div class="form-legend"><span class="num">2</span> Shipping address</div>
+        <div class="field-row">
+          <div class="field" data-validate="required">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name">
+            <div class="field-error">Required.</div>
+          </div>
+          <div class="field" data-validate="required">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name">
+            <div class="field-error">Required.</div>
+          </div>
+        </div>
+        <div class="field" data-validate="required">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" placeholder="Street and number" autocomplete="address-line1">
+          <div class="field-error">Required.</div>
+        </div>
+        <div class="field">
+          <label for="address2">Apartment, suite, etc. (optional)</label>
+          <input type="text" id="address2" name="address2" autocomplete="address-line2">
+        </div>
+        <div class="field-row-3">
+          <div class="field" data-validate="required">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" autocomplete="address-level2">
+            <div class="field-error">Required.</div>
+          </div>
+          <div class="field" data-validate="required">
+            <label for="postal">Postal code</label>
+            <input type="text" id="postal" name="postal" autocomplete="postal-code">
+            <div class="field-error">Required.</div>
+          </div>
+          <div class="field" data-validate="required">
+            <label for="country">Country</label>
+            <select id="country" name="country" autocomplete="country-name">
+              <option value="">Choose…</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>United Kingdom</option>
+              <option>France</option>
+              <option>Germany</option>
+              <option>Spain</option>
+              <option>Italy</option>
+              <option>Netherlands</option>
+              <option>Belgium</option>
+              <option>Switzerland</option>
+              <option>Sweden</option>
+              <option>Norway</option>
+              <option>Denmark</option>
+              <option>Australia</option>
+              <option>New Zealand</option>
+              <option>Japan</option>
+              <option>United Arab Emirates</option>
+              <option>Morocco</option>
+              <option>Other</option>
+            </select>
+            <div class="field-error">Required.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Delivery -->
+      <div class="form-section">
+        <div class="form-legend"><span class="num">3</span> Delivery</div>
+        <label class="method-card active" data-ship="standard">
+          <input type="radio" name="ship" value="standard" checked>
+          <span>
+            <span class="method-name">DHL Express · Standard</span><br>
+            <span class="method-desc">2–4 business days from Marrakech</span>
+          </span>
+          <span class="method-price" data-ship-price="standard">$18</span>
+        </label>
+        <label class="method-card" data-ship="express">
+          <input type="radio" name="ship" value="express">
+          <span>
+            <span class="method-name">DHL Express · Priority</span><br>
+            <span class="method-desc">1–2 business days, priority handling</span>
+          </span>
+          <span class="method-price">$39</span>
+        </label>
+      </div>
+
+      <!-- 4. Payment (demo) -->
+      <div class="form-section">
+        <div class="form-legend"><span class="num">4</span> Payment</div>
+        <p style="font-size:0.82rem;color:var(--ink-soft);margin-bottom:18px;line-height:1.6;background:var(--cream-deep);padding:12px 16px;border-left:3px solid var(--saffron);">
+          <strong>Demo checkout.</strong> This site has no payment backend yet, so no card is charged and no data leaves your browser. Enter any numbers to see the order confirmation. We’ll connect Stripe (or Shopify) before going live.
+        </p>
+        <div class="field" data-validate="card">
+          <label for="card">Card number</label>
+          <input type="text" id="card" name="card" inputmode="numeric" placeholder="4242 4242 4242 4242" autocomplete="cc-number" maxlength="23">
+          <div class="field-error">Enter a card number (any digits for the demo).</div>
+        </div>
+        <div class="field-row">
+          <div class="field" data-validate="expiry">
+            <label for="expiry">Expiry (MM/YY)</label>
+            <input type="text" id="expiry" name="expiry" placeholder="08/28" autocomplete="cc-exp" maxlength="5">
+            <div class="field-error">Use MM/YY format.</div>
+          </div>
+          <div class="field" data-validate="cvc">
+            <label for="cvc">CVC</label>
+            <input type="text" id="cvc" name="cvc" inputmode="numeric" placeholder="123" autocomplete="cc-csc" maxlength="4">
+            <div class="field-error">3–4 digits.</div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-block" id="placeOrderBtn">Place order</button>
+      <p style="text-align:center;font-size:0.78rem;color:var(--ink-soft);margin-top:16px;">
+        <a href="cart.html" style="color:var(--ink-soft);">← Back to cart</a>
+      </p>
+    </form>
+
+    <aside class="order-summary">
+      <h2>Your order</h2>
+      <div id="checkoutLines"></div>
+      <div class="summary-row"><span>Subtotal</span><span class="val" id="ckSubtotal">$0</span></div>
+      <div class="summary-row"><span id="ckShipLabel">Shipping</span><span class="val" id="ckShipping">—</span></div>
+      <div class="summary-row" style="font-size:0.82rem;"><span>Duties &amp; taxes</span><span>Paid on delivery</span></div>
+      <div class="summary-row total"><span>Total</span><strong id="ckTotal">$0</strong></div>
+      <div class="summary-tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</div>
+      <p class="summary-note">Thank you for keeping a workshop open one more month. Every order is made by hand and shipped direct from Morocco.</p>
+    </aside>
+  </section>
+</main>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="footer-bottom" style="border-top:none;padding-top:0;">
+    <div>© 2026 Aṣli · Made with love in Casablanca · <span class="tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</span> (thank you)</div>
+    <div class="social">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/asli.js"></script>
+<script>
+(function () {
+  var SHIP = { standard: function (sub) { return sub >= ASLI.FREE_SHIP ? 0 : 18; }, express: function () { return 39; } };
+  var form = document.getElementById('checkoutForm');
+  var page = document.getElementById('checkoutPage');
+  var emptyState = document.getElementById('emptyState');
+
+  function currentShip() {
+    var m = form.querySelector('input[name="ship"]:checked');
+    return m ? m.value : 'standard';
+  }
+
+  function renderSummary() {
+    var lines = ASLI.cart.lines();
+    if (!lines.length) {
+      page.style.display = 'none';
+      emptyState.style.display = 'block';
+      return;
+    }
+    page.style.display = '';
+    emptyState.style.display = 'none';
+    document.getElementById('checkoutLines').innerHTML = lines.map(function (l) {
+      var p = l.product;
+      return '<div class="checkout-mini-line">' +
+        '<div class="checkout-mini-img"><img src="' + ASLI.imgUrl(p.kw, p.lock, 120, 150) + '" alt="' + ASLI.escAttr(p.name) + '"><span class="checkout-mini-qty">' + l.qty + '</span></div>' +
+        '<div><div class="checkout-mini-name">' + p.name + '</div>' +
+        '<div class="checkout-mini-meta">' + (l.variant || p.region) + '</div></div>' +
+        '<div class="checkout-mini-price">' + ASLI.money(p.price * l.qty) + '</div>' +
+      '</div>';
+    }).join('');
+
+    var sub = ASLI.cart.subtotal();
+    var ship = SHIP[currentShip()](sub);
+    document.getElementById('ckSubtotal').textContent = ASLI.money(sub);
+    document.getElementById('ckShipping').textContent = ship === 0 ? 'Free ✦' : ASLI.money(ship);
+    document.getElementById('ckTotal').textContent = ASLI.money(sub + ship);
+    document.getElementById('placeOrderBtn').textContent = 'Place order — ' + ASLI.money(sub + ship);
+    // reflect free standard shipping in the method card price
+    var stdPrice = document.querySelector('[data-ship-price="standard"]');
+    if (stdPrice) stdPrice.textContent = sub >= ASLI.FREE_SHIP ? 'Free' : '$18';
+  }
+
+  // delivery method selection
+  form.querySelectorAll('.method-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      form.querySelectorAll('.method-card').forEach(function (c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      card.querySelector('input').checked = true;
+      renderSummary();
+    });
+  });
+
+  // light input formatting
+  var cardInput = document.getElementById('card');
+  cardInput.addEventListener('input', function () {
+    var v = cardInput.value.replace(/\D/g, '').slice(0, 19);
+    cardInput.value = v.replace(/(.{4})/g, '$1 ').trim();
+  });
+  var exp = document.getElementById('expiry');
+  exp.addEventListener('input', function () {
+    var v = exp.value.replace(/\D/g, '').slice(0, 4);
+    exp.value = v.length > 2 ? v.slice(0, 2) + '/' + v.slice(2) : v;
+  });
+
+  // validation
+  function validateField(field) {
+    var type = field.getAttribute('data-validate');
+    var input = field.querySelector('input, select');
+    var val = (input.value || '').trim();
+    var ok = true;
+    if (type === 'required') ok = val.length > 0;
+    else if (type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    else if (type === 'card') ok = val.replace(/\D/g, '').length >= 12;
+    else if (type === 'expiry') ok = /^\d{2}\/\d{2}$/.test(val);
+    else if (type === 'cvc') ok = /^\d{3,4}$/.test(val);
+    field.classList.toggle('has-error', !ok);
+    input.classList.toggle('invalid', !ok);
+    return ok;
+  }
+  form.querySelectorAll('[data-validate]').forEach(function (field) {
+    var input = field.querySelector('input, select');
+    input.addEventListener('blur', function () { validateField(field); });
+    input.addEventListener('input', function () { if (field.classList.contains('has-error')) validateField(field); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fields = form.querySelectorAll('[data-validate]');
+    var firstBad = null;
+    fields.forEach(function (f) { if (!validateField(f) && !firstBad) firstBad = f; });
+    if (firstBad) { firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' }); firstBad.querySelector('input,select').focus(); return; }
+
+    // success: build confirmation, clear cart
+    var email = document.getElementById('email').value.trim();
+    var firstName = document.getElementById('firstName').value.trim();
+    var sub = ASLI.cart.subtotal();
+    var ship = SHIP[currentShip()](sub);
+    var total = ASLI.money(sub + ship);
+    var orderId = 'ASL-' + Date.now().toString(36).toUpperCase().slice(-6);
+
+    ASLI.cart.clear();
+    document.getElementById('checkoutRoot').innerHTML =
+      '<div class="confirmation">' +
+        '<span class="tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</span>' +
+        '<div class="check"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-11"/></svg></div>' +
+        '<h1>Tanmmirt, ' + (firstName || 'friend') + '. Your order is <em>confirmed.</em></h1>' +
+        '<p>Order <span class="order-id">' + orderId + '</span> · Total ' + total + '</p>' +
+        '<p>A confirmation has been sent to <strong>' + (email || 'your email') + '</strong>. Your piece is now being prepared by hand and will ship from Marrakech via DHL within a few days.</p>' +
+        '<p style="font-size:0.86rem;">(Demo order — no payment was processed and no email was actually sent.)</p>' +
+        '<a href="shop.html" class="btn" style="margin-top:24px;">Continue shopping →</a>' +
+      '</div>';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  renderSummary();
+  document.addEventListener('asli:cart', renderSummary);
+})();
+</script>
+
+</body>
+</html>

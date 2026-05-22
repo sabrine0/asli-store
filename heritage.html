@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heritage · ⴰⵎⵣⵔⵓⵢ · Aṣli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F7EFDF;
+  --cream-deep: #EBDFC4;
+  --sand: #E0D0B0;
+  --ink: #1A0F08;
+  --ink-soft: #5A4632;
+  --terracotta: #B5391C;
+  --coral: #D9583A;
+  --emerald: #1F4D3F;
+  --emerald-deep: #0E2E25;
+  --tuareg-blue: #1A4D7A;
+  --tuareg-deep: #0A2E4D;
+  --brass: #B8893E;
+  --saffron: #D9A12D;
+  --wine: #6D1B12;
+  --line: #C9B68E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 1000;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.tf { font-family: 'Noto Sans Tifinagh', sans-serif; }
+
+.announce { background: var(--ink); color: var(--cream); font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 11px 24px; text-align: center; font-weight: 500; }
+.announce .sep { color: var(--saffron); margin: 0 12px; }
+
+nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 56px; border-bottom: 1px solid var(--line); background: var(--cream); position: sticky; top: 0; z-index: 100; }
+.logo-wrap { display: flex; align-items: center; gap: 14px; }
+.logo-mark { width: 40px; height: 40px; color: var(--terracotta); }
+.logo { font-family: 'Fraunces', serif; font-size: 1.95rem; font-weight: 600; font-variation-settings: 'SOFT' 100; line-height: 1; }
+.logo-tf { font-family: 'Noto Sans Tifinagh', sans-serif; font-size: 1rem; color: var(--terracotta); margin-top: 4px; letter-spacing: 0.08em; }
+.nav-links { display: flex; gap: 36px; list-style: none; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; }
+.nav-links a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
+.nav-links a.active { color: var(--terracotta); }
+.nav-links a:hover { color: var(--terracotta); }
+.nav-icons { display: flex; gap: 20px; align-items: center; }
+.nav-icons button { background: none; border: none; cursor: pointer; color: var(--ink); font-family: inherit; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.cart-count { background: var(--terracotta); color: var(--cream); width: 19px; height: 19px; border-radius: 50%; font-size: 0.65rem; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-left: 6px; }
+
+/* HERO */
+.hero-heritage {
+  min-height: 80vh;
+  background: linear-gradient(155deg, #1A4D7A 0%, #0A2E4D 100%);
+  color: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+.hero-heritage::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D9A12D' stroke-width='0.6' opacity='0.18'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-heritage-text {
+  padding: 90px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-heritage-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  color: var(--saffron);
+  display: flex; align-items: center; gap: 14px;
+  font-weight: 700;
+}
+.hero-heritage-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--saffron); }
+.hero-heritage-eyebrow .tf { font-size: 1rem; letter-spacing: 0.05em; text-transform: none; font-weight: 400; color: rgba(247, 239, 223, 0.6); }
+.hero-heritage h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+.hero-heritage h1 em { font-style: italic; color: var(--saffron); }
+.hero-heritage p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: rgba(247, 239, 223, 0.85);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.hero-yaz {
+  background: linear-gradient(155deg, rgba(217, 161, 45, 0.15) 0%, rgba(217, 161, 45, 0) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-yaz-symbol {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: clamp(15rem, 30vw, 26rem);
+  color: var(--saffron);
+  line-height: 1;
+  font-weight: 400;
+  text-shadow: 0 10px 60px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0;
+}
+.hero-yaz-label {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 223, 0.7);
+  font-weight: 700;
+}
+.hero-yaz-label .name { display: block; font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; font-size: 1.1rem; letter-spacing: 0.02em; text-transform: none; color: var(--saffron); margin-bottom: 4px; }
+
+/* INTRO */
+.intro {
+  padding: 110px 56px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.intro-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.intro-quote em { font-style: normal; color: var(--terracotta); }
+.intro-quote .author {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 32px;
+  font-weight: 700;
+}
+.intro-text {
+  padding-top: 14px;
+}
+.intro-text p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+.intro-text p strong { color: var(--ink); font-weight: 600; }
+
+/* TIFINAGH GALLERY */
+.tifinagh-section {
+  padding: 110px 56px;
+  background: var(--cream-deep);
+  border-bottom: 1px solid var(--line);
+}
+.tifinagh-header { text-align: center; max-width: 700px; margin: 0 auto 70px; }
+.tifinagh-header .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.tifinagh-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 22px;
+}
+.tifinagh-header h2 em { font-style: italic; color: var(--terracotta); }
+.tifinagh-header p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.tifinagh-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.tif-card {
+  background: var(--cream);
+  padding: 40px 30px;
+  text-align: center;
+  border: 1px solid var(--line);
+  transition: all 0.4s;
+  cursor: default;
+}
+.tif-card:hover { background: var(--ink); color: var(--cream); transform: translateY(-4px); }
+.tif-card:hover .tif-symbol { color: var(--saffron); }
+.tif-card:hover .tif-meaning { color: var(--saffron); }
+.tif-symbol {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 4rem;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 22px;
+  transition: color 0.3s;
+}
+.tif-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.tif-meaning {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+  margin-bottom: 18px;
+  transition: color 0.3s;
+}
+.tif-desc { font-size: 0.88rem; line-height: 1.55; opacity: 0.85; }
+
+/* REGIONS */
+.regions { padding: 110px 56px; border-bottom: 1px solid var(--line); }
+.regions-header { margin-bottom: 70px; }
+.regions-header .eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 16px; font-weight: 700;
+}
+.regions-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 400; line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 700px;
+}
+.regions-header h2 em { font-style: italic; color: var(--terracotta); }
+
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.region-card {
+  position: relative;
+  aspect-ratio: 3/4.2;
+  overflow: hidden;
+  border-radius: 50% 50% 6px 6px / 18% 18% 6px 6px;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+.region-card:hover { transform: translateY(-6px); }
+.region-card img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.region-card:hover img { transform: scale(1.1); }
+.region-card::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
+}
+.region-card::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.5' opacity='0.12'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.region-content {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  color: var(--cream);
+  z-index: 3;
+}
+.region-tif {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 1.6rem;
+  color: var(--saffron);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.region-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.region-desc {
+  font-size: 0.84rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* TIMELINE */
+.timeline {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 110px 56px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D9A12D' stroke-width='0.5' opacity='0.06'%3E%3Crect x='25' y='25' width='50' height='50'/%3E%3Crect x='25' y='25' width='50' height='50' transform='rotate(45 50 50)'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.timeline-header { text-align: center; margin-bottom: 80px; position: relative; z-index: 2; }
+.timeline-header .eyebrow { font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; font-weight: 700; }
+.timeline-header h2 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 400; line-height: 1.05; max-width: 700px; margin: 0 auto; letter-spacing: -0.025em; }
+.timeline-header h2 em { font-style: italic; color: var(--saffron); }
+
+.timeline-items {
+  display: grid;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 50px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(247, 239, 223, 0.15);
+  align-items: start;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-year {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--saffron);
+  letter-spacing: -0.02em;
+}
+.timeline-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.timeline-content p {
+  font-size: 1rem;
+  color: rgba(247, 239, 223, 0.7);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* COMMITMENT */
+.commitment {
+  padding: 110px 56px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+.commitment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.commit-card { text-align: center; padding: 20px; }
+.commit-icon { width: 70px; height: 70px; margin: 0 auto 28px; color: var(--terracotta); }
+.commit-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.commit-card p {
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, #B5391C 0%, #6D1B12 100%);
+  color: var(--cream);
+  padding: 130px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before, .cta::after {
+  content: '';
+  position: absolute;
+  width: 280px; height: 280px;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.7' opacity='0.4'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.cta::before { top: -80px; left: -80px; }
+.cta::after { bottom: -80px; right: -80px; }
+.cta-tif {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 3rem;
+  color: var(--saffron);
+  margin-bottom: 24px;
+  position: relative; z-index: 2;
+  letter-spacing: 0.06em;
+}
+.cta h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  max-width: 800px;
+  margin: 0 auto 26px;
+  letter-spacing: -0.025em;
+  position: relative; z-index: 2;
+}
+.cta h2 em { font-style: italic; color: var(--saffron); }
+.cta p {
+  font-size: 1.1rem;
+  max-width: 540px;
+  margin: 0 auto 44px;
+  opacity: 0.85;
+  position: relative; z-index: 2;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 20px 36px;
+  background: var(--cream);
+  color: var(--ink);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s;
+  border: none;
+  position: relative; z-index: 2;
+}
+.btn:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+
+/* FOOTER */
+footer { background: var(--ink); color: var(--cream); padding: 60px 56px 28px; }
+.footer-simple { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-brand { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 600; font-variation-settings: 'SOFT' 100; }
+.footer-brand .tf { color: var(--saffron); font-size: 1.1rem; margin-left: 8px; }
+.footer-simple a { color: rgba(247, 239, 223, 0.7); text-decoration: none; font-size: 0.88rem; margin-left: 24px; transition: color 0.3s; }
+.footer-simple a:hover { color: var(--saffron); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-heritage { grid-template-columns: 1fr; min-height: auto; }
+  .hero-heritage-text { padding: 60px 28px; }
+  .hero-yaz { min-height: 360px; }
+  .intro { grid-template-columns: 1fr; gap: 40px; }
+  .tifinagh-grid { grid-template-columns: repeat(2, 1fr); }
+  .regions-grid { grid-template-columns: repeat(2, 1fr); }
+  .commitment-grid { grid-template-columns: 1fr; gap: 40px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 14px; }
+}
+@media (max-width: 640px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .tifinagh-section, .regions, .timeline, .commitment { padding: 70px 24px; }
+  .cta { padding: 80px 24px; }
+  .tifinagh-grid { grid-template-columns: 1fr; }
+  .regions-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  Free worldwide DHL shipping over $150
+  <span class="sep">✦</span>
+  Ships from Marrakech in 2–4 days
+  <span class="sep">✦</span>
+  <span class="tf" style="color:var(--saffron);">ⵉⵎⴰⵣⵉⵖⵏ</span>
+</div>
+
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="8" y="8" width="24" height="24"/>
+          <rect x="8" y="8" width="24" height="24" transform="rotate(45 20 20)"/>
+          <circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="logo">Aṣli</div>
+      <div class="logo-tf">ⴰⵚⵍⵉ</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="shop.html">Collections</a></li>
+    <li><a href="heritage.html" class="active">Heritage</a></li>
+    <li><a href="index.html#artisans">Artisans</a></li>
+    <li><a href="index.html#story">Our Story</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button>Search</button>
+    <button>Account</button>
+    <button data-cart-open>Cart <span class="cart-count">0</span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-heritage">
+  <div class="hero-heritage-text">
+    <div class="hero-heritage-eyebrow">
+      <span>Our Heritage</span>
+      <span class="tf">·  ⴰⵎⵣⵔⵓⵢ</span>
+    </div>
+    <h1>3,000 years<br>of <em>free hands.</em></h1>
+    <p>
+      Before the Romans, before Islam, before the borders — the Imaziɣen lived across North Africa. From the Atlas to the Sahara, they made what their hands could carry: rugs, jewelry, leather, pottery, blades.
+    </p>
+    <p>
+      The word <em style="font-style:italic;color:var(--saffron);">Amazigh</em> means «free person». For 30 centuries, they have refused to forget that.
+    </p>
+  </div>
+  <div class="hero-yaz">
+    <div class="hero-yaz-symbol">ⵣ</div>
+    <div class="hero-yaz-label">
+      <span class="name">The Yaz</span>
+      Free man · Amazigh identity
+    </div>
+  </div>
+</section>
+
+<!-- INTRO QUOTE -->
+<section class="intro">
+  <div class="intro-quote">
+    "The mountain has taught us <em>everything.</em> The book only learned to write it down."
+    <span class="author">— Berber proverb · Atlas Mountains</span>
+  </div>
+  <div class="intro-text">
+    <p>
+      Every piece at <strong>Aṣli</strong> begins in the hands of an Amazigh artisan — most often a woman, in a cooperative in the High Atlas, the Anti-Atlas, or the Rif. The crafts she practices are older than Morocco itself.
+    </p>
+    <p>
+      The Beni Ourain rug? Woven by Berber tribes since the Paleolithic era. The brass lantern? Forged using techniques from the medieval Marinid era. The leather pouf? Stitched with a curved needle and waxed cotton thread, exactly as it was 800 years ago.
+    </p>
+    <p>
+      We did not invent any of this. We are only the bridge between makers and buyers — without warehouses, without middlemen, without rushing them.
+    </p>
+  </div>
+</section>
+
+<!-- TIFINAGH SYMBOLS -->
+<section class="tifinagh-section">
+  <div class="tifinagh-header">
+    <div class="eyebrow">The Tifinagh script</div>
+    <h2>The alphabet of the <em>free.</em></h2>
+    <p>
+      Tifinagh (ⵜⵉⴼⵉⵏⴰⵖ) is the indigenous writing system of the Amazigh people — used for over 2,500 years. In 2003, Morocco made it official alongside Arabic. Here are the symbols you'll see throughout our shop.
+    </p>
+  </div>
+  <div class="tifinagh-grid">
+    <div class="tif-card">
+      <div class="tif-symbol">ⵣ</div>
+      <div class="tif-name">Yaz / Aza</div>
+      <div class="tif-meaning">"Free man"</div>
+      <div class="tif-desc">The most recognized Amazigh symbol. Found on flags, jewelry, tattoos, and woven into rugs. It means freedom, identity, dignity.</div>
+    </div>
+    <div class="tif-card">
+      <div class="tif-symbol">ⴰⵚⵍⵉ</div>
+      <div class="tif-name">Aṣli</div>
+      <div class="tif-meaning">"Authentic"</div>
+      <div class="tif-desc">Our name. Meaning: original, true, real, unadulterated. Used to distinguish handmade from factory-made.</div>
+    </div>
+    <div class="tif-card">
+      <div class="tif-symbol">ⴰⵣⵓⵍ</div>
+      <div class="tif-name">Azul</div>
+      <div class="tif-meaning">"Hello / Peace"</div>
+      <div class="tif-desc">The universal Amazigh greeting. Said with the right hand on the heart. The respectful way to enter a workshop or a home.</div>
+    </div>
+    <div class="tif-card">
+      <div class="tif-symbol">ⵉⵎⴰⵣⵉⵖⵏ</div>
+      <div class="tif-name">Imaziɣen</div>
+      <div class="tif-meaning">"The free people"</div>
+      <div class="tif-desc">What the Amazigh call themselves. Plural of Amazigh. Not "Berbers" — that's the Greek word, meaning «foreigners».</div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section class="regions">
+  <div class="regions-header">
+    <div class="eyebrow">The four lands</div>
+    <h2>Every region, its <em>own craft.</em></h2>
+  </div>
+  <div class="regions-grid">
+    <div class="region-card">
+      <img src="https://loremflickr.com/600/800/atlas,mountains,morocco,berber?lock=301" alt="Atlas Mountains">
+      <div class="region-content">
+        <div class="region-tif">ⴰⵟⵍⴰⵚ</div>
+        <div class="region-name">The Atlas</div>
+        <div class="region-desc">Beni Ourain rugs, sheep wool, silver jewelry. Cold mountain villages where weaving keeps families warm and fed through winter.</div>
+      </div>
+    </div>
+    <div class="region-card">
+      <img src="https://loremflickr.com/600/800/rif,morocco,mountains,chefchaouen?lock=302" alt="Rif Mountains">
+      <div class="region-content">
+        <div class="region-tif">ⴰⵔⵉⴼ</div>
+        <div class="region-name">The Rif</div>
+        <div class="region-desc">Embroidered fabrics, woven baskets, blue-painted villages. The north coast tradition — softer colors, finer thread, Mediterranean influence.</div>
+      </div>
+    </div>
+    <div class="region-card">
+      <img src="https://loremflickr.com/600/800/souss,morocco,argan,essaouira?lock=303" alt="Souss Valley">
+      <div class="region-content">
+        <div class="region-tif">ⵙⵓⵙ</div>
+        <div class="region-name">The Souss</div>
+        <div class="region-desc">Argan oil, women's cooperatives, silver Tuareg jewelry. The land where the argan tree grows — found nowhere else on earth.</div>
+      </div>
+    </div>
+    <div class="region-card">
+      <img src="https://loremflickr.com/600/800/sahara,desert,morocco,tuareg?lock=304" alt="Sahara Desert">
+      <div class="region-content">
+        <div class="region-tif">ⵜⵉⵏⵉⵔⵉ</div>
+        <div class="region-name">The Sahara</div>
+        <div class="region-desc">Tuareg jewelry, indigo dyes, woven mats, leather camel saddles. The deepest blue — Tuareg blue — comes from these dunes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="timeline-header">
+    <div class="eyebrow">A short history</div>
+    <h2>30 centuries of <em>making.</em></h2>
+  </div>
+  <div class="timeline-items">
+    <div class="timeline-item">
+      <div class="timeline-year">1000 BC</div>
+      <div class="timeline-content">
+        <h3>The first looms</h3>
+        <p>The earliest known Berber rugs date to the Paleolithic. The symbols woven into them — diamonds, zigzags, hands — are still used by the same tribes today, in the same valleys.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">600 BC</div>
+      <div class="timeline-content">
+        <h3>Tifinagh appears</h3>
+        <p>The first Tifinagh inscriptions are carved into stones across North Africa. The script will survive every empire that follows — Phoenician, Roman, Arab, French — without ever being defeated.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">800 AD</div>
+      <div class="timeline-content">
+        <h3>The Marinid leatherworks</h3>
+        <p>Fes becomes the world capital of tanned leather. The chouara tannery — still operating today, the oldest in the world — uses the same vegetable dyes (henna, indigo, saffron, mint) as it did in the year 850.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1500s</div>
+      <div class="timeline-content">
+        <h3>Zellige tilework</h3>
+        <p>The geometric tile mosaics of Morocco reach their peak in the Saadian dynasty. The 8-pointed star (used throughout this site) becomes the signature pattern, never copied successfully outside North Africa.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2011</div>
+      <div class="timeline-content">
+        <h3>Tamazight becomes official</h3>
+        <p>After centuries of marginalization, the Amazigh language and Tifinagh script become official languages of Morocco alongside Arabic. The Royal Institute of Amazigh Culture (IRCAM) is founded.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2026</div>
+      <div class="timeline-content">
+        <h3>You are here</h3>
+        <p>And so are we. Aṣli was born to make sure the next 30 centuries of this craft are not lost to factories, fast furniture, and forgotten cooperatives. Every purchase keeps a workshop open one more month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENT -->
+<section class="commitment">
+  <div class="regions-header" style="text-align:center;max-width:700px;margin:0 auto 80px;">
+    <div class="eyebrow">Our commitment</div>
+    <h2 style="margin: 0;">Three promises, <em>nothing more.</em></h2>
+  </div>
+  <div class="commitment-grid">
+    <div class="commit-card">
+      <div class="commit-icon">
+        <svg viewBox="0 0 70 70" fill="none" stroke="currentColor" stroke-width="1.5" style="width:100%;height:100%;">
+          <circle cx="35" cy="35" r="28"/>
+          <path d="M22 35l10 10 16-20"/>
+        </svg>
+      </div>
+      <h3>Direct from the maker</h3>
+      <p>We meet every artisan in person before working with them. No agents, no middlemen, no "import-export" companies between you and the hands that made it.</p>
+    </div>
+    <div class="commit-card">
+      <div class="commit-icon">
+        <svg viewBox="0 0 70 70" fill="none" stroke="currentColor" stroke-width="1.5" style="width:100%;height:100%;">
+          <rect x="14" y="22" width="42" height="32"/>
+          <path d="M35 14v8M22 32h26M22 42h26"/>
+        </svg>
+      </div>
+      <h3>Fair pay, always</h3>
+      <p>We pay artisans 2–3× the local market rate. Half upfront, half on delivery. Their name, their region, and their photo go on every product page.</p>
+    </div>
+    <div class="commit-card">
+      <div class="commit-icon">
+        <svg viewBox="0 0 70 70" fill="none" stroke="currentColor" stroke-width="1.5" style="width:100%;height:100%;">
+          <path d="M35 8C20 18 14 30 14 42c0 12 9 20 21 20s21-8 21-20c0-12-6-24-21-34z"/>
+          <path d="M35 30v18M28 38h14"/>
+        </svg>
+      </div>
+      <h3>Slow, on purpose</h3>
+      <p>We do not rush our makers. Some pieces take 30 days. Some take 90. We never accept rush orders that compromise the work. The wait is the value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-tif">ⴰⵣⵓⵍ</div>
+  <h2>Now you know <em>our story.</em><br>Come see what they made.</h2>
+  <p>Each piece carries 3,000 years of knowing. Each purchase keeps a workshop alive one more month.</p>
+  <a href="shop.html" class="btn">Shop the collection →</a>
+</section>
+
+<footer>
+  <div class="footer-simple">
+    <div class="footer-brand">Aṣli <span class="tf">ⴰⵚⵍⵉ</span></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+  <div style="margin-top:30px;padding-top:24px;border-top:1px solid rgba(247,239,223,0.15);font-size:0.78rem;color:rgba(247,239,223,0.5);">
+    © 2026 Aṣli · Made with love in Casablanca · <span class="tf" style="color:var(--saffron);">ⵜⴰⵏⵎⵎⵉⵔⵜ</span>
+  </div>
+</footer>
+
+<script src="js/asli.js"></script>
+
+</body>
+</html>

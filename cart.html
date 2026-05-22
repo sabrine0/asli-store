@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart · ⵜⴰⵙⵙⵉⵍⵜ — Aṣli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/asli.css">
+</head>
+<body>
+
+<div class="announce">
+  <span>Free worldwide DHL shipping over $150</span>
+  <span class="sep">✦</span>
+  <span>Ships from Marrakech in 2–4 days</span>
+  <span class="sep">✦</span>
+  <span class="tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</span>
+</div>
+
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="8" y="8" width="24" height="24"/>
+          <rect x="8" y="8" width="24" height="24" transform="rotate(45 20 20)"/>
+          <circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="logo">Aṣli</div>
+      <div class="logo-tf">ⴰⵚⵍⵉ</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="shop.html">Collections</a></li>
+    <li><a href="heritage.html">Heritage</a></li>
+    <li><a href="index.html#artisans">Artisans</a></li>
+    <li><a href="index.html#story">Our Story</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button onclick="location.href='shop.html'">Search</button>
+    <button>Account</button>
+    <button data-cart-open>Cart <span class="cart-count">0</span></button>
+  </div>
+</nav>
+
+<div class="breadcrumbs">
+  <a href="index.html">Home</a><span class="sep">/</span>
+  <a href="shop.html">Shop</a><span class="sep">/</span>
+  Cart
+</div>
+
+<!-- === CART (rebuilt entirely on every render to stay in sync) === -->
+<section class="cart-page" id="cartPage"></section>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-wrap">
+        <div class="footer-brand">Aṣli</div>
+        <div class="footer-brand-tf">ⴰⵚⵍⵉ</div>
+      </div>
+      <p class="footer-tag">Authentic Amazigh & Moroccan craft, sourced directly from the artisans of the Atlas, Marrakech, Fes, and the desert.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop <span class="tf">ⴰⵙⵙⴰⵖ</span></h4>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="shop.html?cat=Rugs">Rugs</a></li>
+        <li><a href="shop.html?cat=Leather%20%26%20Stitching">Leather</a></li>
+        <li><a href="shop.html?cat=Home%20%26%20Decor">Home Decor</a></li>
+        <li><a href="shop.html?cat=Beauty%20%26%20Rituals">Beauty</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help <span class="tf">ⵜⵉⵡⵉⵙⵉ</span></h4>
+      <ul>
+        <li><a href="contact.html#faq">Shipping</a></li>
+        <li><a href="contact.html#faq">Returns</a></li>
+        <li><a href="contact.html#faq">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About <span class="tf">ⵖⴼⵏⵏⵖ</span></h4>
+      <ul>
+        <li><a href="index.html#story">Our Story</a></li>
+        <li><a href="index.html#artisans">Artisans</a></li>
+        <li><a href="heritage.html">Heritage</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Aṣli · Made with love in Casablanca · <span class="tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</span> (thank you)</div>
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/asli.js"></script>
+<script>
+(function () {
+  var page = document.getElementById('cartPage');
+
+  function lineHtml(l) {
+    var p = l.product;
+    return '<div class="cart-line" data-line data-id="' + p.id + '" data-variant="' + ASLI.escAttr(l.variant) + '">' +
+      '<a class="cart-line-img" href="product-page.html?id=' + p.id + '"><img src="' + ASLI.imgUrl(p.kw, p.lock, 240, 300) + '" alt="' + ASLI.escAttr(p.name) + '"></a>' +
+      '<div>' +
+        '<div class="cart-line-name"><a href="product-page.html?id=' + p.id + '">' + p.name + '</a></div>' +
+        '<div class="cart-line-region">' + p.region + ' <span class="yaz">ⵣ</span> Morocco</div>' +
+        (l.variant ? '<div class="cart-line-variant">' + l.variant + '</div>' : '') +
+        '<div class="qty-selector" style="margin:6px 0 12px;">' +
+          '<button class="qty-btn" data-asli-dec aria-label="Decrease">−</button>' +
+          '<div class="qty-num">' + l.qty + '</div>' +
+          '<button class="qty-btn" data-asli-inc aria-label="Increase">+</button>' +
+        '</div>' +
+        '<button class="cart-line-remove" data-asli-remove>Remove</button>' +
+      '</div>' +
+      '<div class="cart-line-right">' +
+        '<div class="cart-line-price">' + ASLI.money(p.price * l.qty) + '</div>' +
+        '<div style="font-size:0.78rem;color:var(--ink-soft);">' + ASLI.money(p.price) + ' each</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function render() {
+    var lines = ASLI.cart.lines();
+    var count = ASLI.cart.count();
+
+    if (!lines.length) {
+      page.innerHTML = '<div class="cart-empty">' +
+        '<span class="tf">ⵉⵍⵎ</span>' +
+        '<h2>Your cart is empty</h2>' +
+        '<p>Nothing here yet — the souk is full of treasures waiting for you.</p>' +
+        '<a href="shop.html" class="btn">Browse the collection →</a>' +
+      '</div>';
+      return;
+    }
+
+    var sub = ASLI.cart.subtotal();
+    var ship = ASLI.cart.shipping();
+    var pct = Math.min(100, Math.round(sub / ASLI.FREE_SHIP * 100));
+    var freeIn = ASLI.FREE_SHIP - sub;
+    var shipMsg = sub >= ASLI.FREE_SHIP
+      ? 'You’ve unlocked <strong>free worldwide DHL shipping</strong> ✦'
+      : 'Add <strong>' + ASLI.money(freeIn) + '</strong> more for free worldwide shipping.';
+
+    page.innerHTML =
+      '<div>' +
+        '<div class="cart-head"><h1>Your <em>cart.</em></h1>' +
+        '<div class="count">' + count + (count === 1 ? ' piece' : ' pieces') + ', made by hand.</div></div>' +
+        '<div>' + lines.map(lineHtml).join('') + '</div>' +
+      '</div>' +
+      '<aside class="order-summary">' +
+        '<h2>Order summary</h2>' +
+        '<div class="ship-progress">' +
+          '<div class="ship-progress-bar"><div class="ship-progress-fill" style="width:' + pct + '%;"></div></div>' +
+          '<div class="ship-progress-text">' + shipMsg + '</div>' +
+        '</div>' +
+        '<div class="summary-row"><span>Subtotal</span><span class="val">' + ASLI.money(sub) + '</span></div>' +
+        '<div class="summary-row"><span>Shipping (est.)</span><span class="val">' + (ship === 0 ? 'Free ✦' : ASLI.money(ship)) + '</span></div>' +
+        '<div class="summary-row total"><span>Total</span><strong>' + ASLI.money(sub + ship) + '</strong></div>' +
+        '<a href="checkout.html" class="btn btn-block" style="margin-top:22px;">Proceed to checkout →</a>' +
+        '<a href="shop.html" class="btn btn-ghost btn-block" style="margin-top:10px;">Continue shopping</a>' +
+        '<p class="summary-note">Taxes &amp; final shipping calculated at checkout.<br>Ships via DHL Express from Marrakech in 2–4 days.</p>' +
+      '</aside>';
+  }
+
+  render();
+  document.addEventListener('asli:cart', render); // qty/remove fire this from js/asli.js
+})();
+</script>
+
+</body>
+</html>

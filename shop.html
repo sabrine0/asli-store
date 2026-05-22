@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop · ⴰⵙⵙⴰⵖ — Aṣli</title>
+<meta name="description" content="Shop authentic Amazigh & Moroccan handicrafts — leather poufs, Beni Ourain rugs, brass lanterns, tagines, argan oil. Sourced direct from the artisans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/asli.css">
+</head>
+<body>
+
+<!-- === ANNOUNCEMENT === -->
+<div class="announce">
+  <span>Free worldwide DHL shipping over $150</span>
+  <span class="sep">✦</span>
+  <span>Ships from Marrakech in 2–4 days</span>
+  <span class="sep">✦</span>
+  <span class="tf">ⵙⵉⵏ ⵉⴼⵓⵙⵙⵏ</span>
+  <span>40+ Amazigh artisans</span>
+</div>
+
+<!-- === NAV === -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="8" y="8" width="24" height="24"/>
+          <rect x="8" y="8" width="24" height="24" transform="rotate(45 20 20)"/>
+          <circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="logo">Aṣli</div>
+      <div class="logo-tf">ⴰⵚⵍⵉ</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="shop.html">Collections</a></li>
+    <li><a href="heritage.html">Heritage</a></li>
+    <li><a href="index.html#artisans">Artisans</a></li>
+    <li><a href="index.html#story">Our Story</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button onclick="location.href='shop.html'">Search</button>
+    <button>Account</button>
+    <button data-cart-open>Cart <span class="cart-count">0</span></button>
+  </div>
+</nav>
+
+<!-- === PAGE HERO === -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">
+      <span>The full souk</span>
+      <span class="tf">·  ⴰⵙⵙⴰⵖ</span>
+    </div>
+    <h1>Shop <em>everything.</em></h1>
+    <p>Every piece sourced directly from Amazigh artisans across the Atlas, the Rif, the Souss and the Sahara. No middlemen. No warehouses. No two alike.</p>
+  </div>
+</section>
+
+<!-- === SHOP === -->
+<section class="shop-layout">
+  <div class="shop-toolbar">
+    <div class="filter-group" id="catFilters">
+      <span class="filter-label">Craft</span>
+      <!-- chips injected by JS -->
+    </div>
+    <div class="shop-tools-right">
+      <span class="result-count" id="resultCount"></span>
+      <label class="filter-label" for="regionSelect" style="margin:0;">Region</label>
+      <select class="sort-select" id="regionSelect"><option value="all">All regions</option></select>
+      <label class="filter-label" for="sortSelect" style="margin:0;">Sort</label>
+      <select class="sort-select" id="sortSelect">
+        <option value="featured">Featured</option>
+        <option value="price-asc">Price · low to high</option>
+        <option value="price-desc">Price · high to low</option>
+        <option value="name">Name · A–Z</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="product-grid" id="shopGrid"></div>
+  <div class="shop-empty" id="shopEmpty" style="display:none;">No pieces match those filters. <a href="shop.html" style="color:var(--terracotta);">Reset</a></div>
+</section>
+
+<!-- === NEWSLETTER === -->
+<section class="newsletter">
+  <div class="newsletter-tifinagh">ⴰⵣⵓⵍ</div>
+  <h2>Welcome to the <em>medina.</em></h2>
+  <p>Be the first to hear about new arrivals, artisan stories, and 10% off your first order. <em>Azul</em> means «welcome» in Tamazight.</p>
+  <form class="newsletter-form">
+    <input type="email" placeholder="your@email.com" required>
+    <button type="submit">Subscribe →</button>
+  </form>
+</section>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-wrap">
+        <div class="footer-brand">Aṣli</div>
+        <div class="footer-brand-tf">ⴰⵚⵍⵉ</div>
+      </div>
+      <p class="footer-tag">Authentic Amazigh & Moroccan craft, sourced directly from the artisans of the Atlas, Marrakech, Fes, and the desert.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop <span class="tf">ⴰⵙⵙⴰⵖ</span></h4>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="shop.html?cat=Rugs">Rugs</a></li>
+        <li><a href="shop.html?cat=Leather%20%26%20Stitching">Leather</a></li>
+        <li><a href="shop.html?cat=Home%20%26%20Decor">Home Decor</a></li>
+        <li><a href="shop.html?cat=Beauty%20%26%20Rituals">Beauty</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help <span class="tf">ⵜⵉⵡⵉⵙⵉ</span></h4>
+      <ul>
+        <li><a href="contact.html#faq">Shipping</a></li>
+        <li><a href="contact.html#faq">Returns</a></li>
+        <li><a href="contact.html#faq">FAQ</a></li>
+        <li><a href="contact.html#faq">Care Guide</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About <span class="tf">ⵖⴼⵏⵏⵖ</span></h4>
+      <ul>
+        <li><a href="index.html#story">Our Story</a></li>
+        <li><a href="index.html#artisans">Artisans</a></li>
+        <li><a href="heritage.html">Heritage</a></li>
+        <li><a href="heritage.html">Sustainability</a></li>
+        <li><a href="index.html">Press</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Aṣli · Made with love in Casablanca · <span class="tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</span> (thank you)</div>
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/asli.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById('shopGrid');
+  var empty = document.getElementById('shopEmpty');
+  var catWrap = document.getElementById('catFilters');
+  var regionSel = document.getElementById('regionSelect');
+  var sortSel = document.getElementById('sortSelect');
+  var resultCount = document.getElementById('resultCount');
+
+  var state = { cat: 'all', region: 'all', sort: 'featured' };
+
+  // preselect category from ?cat=
+  var params = new URLSearchParams(location.search);
+  if (params.get('cat')) state.cat = params.get('cat');
+
+  // build category chips
+  var cats = ['all'].concat(ASLI.categories());
+  catWrap.insertAdjacentHTML('beforeend', cats.map(function (c) {
+    var label = c === 'all' ? 'All' : c;
+    var active = c === state.cat ? ' active' : '';
+    return '<button class="filter-chip' + active + '" data-cat="' + ASLI.escAttr(c) + '">' + label + '</button>';
+  }).join(''));
+
+  // build region options
+  ASLI.regions().forEach(function (r) {
+    var o = document.createElement('option'); o.value = r; o.textContent = r; regionSel.appendChild(o);
+  });
+
+  function card(p) {
+    return '<a class="product fade-up" href="product-page.html?id=' + p.id + '" data-id="' + p.id + '">' +
+      '<div class="product-img">' +
+        '<img class="product-photo" src="' + ASLI.imgUrl(p.kw, p.lock, 640, 800) + '" alt="' + ASLI.escAttr(p.name) + '" loading="lazy">' +
+        (p.badge ? '<span class="product-badge">' + p.badge + '</span>' : '') +
+        '<span class="product-quick" data-add="' + p.id + '" data-no-drawer role="button">Quick add +</span>' +
+      '</div>' +
+      '<div class="product-info"><div>' +
+        '<div class="product-name">' + p.name + '</div>' +
+        '<div class="product-region">' + p.region + ' <span class="yaz">ⵣ</span> Morocco</div>' +
+      '</div><div class="product-price">' + ASLI.money(p.price) + '</div></div>' +
+    '</a>';
+  }
+
+  function render() {
+    var list = ASLI.products.slice();
+    if (state.cat !== 'all') list = list.filter(function (p) { return p.category === state.cat; });
+    if (state.region !== 'all') list = list.filter(function (p) { return p.region === state.region; });
+    if (state.sort === 'price-asc') list.sort(function (a, b) { return a.price - b.price; });
+    else if (state.sort === 'price-desc') list.sort(function (a, b) { return b.price - a.price; });
+    else if (state.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+
+    grid.innerHTML = list.map(card).join('');
+    empty.style.display = list.length ? 'none' : 'block';
+    resultCount.textContent = list.length + (list.length === 1 ? ' piece' : ' pieces');
+    ASLI.observeReveal();
+  }
+
+  catWrap.addEventListener('click', function (e) {
+    var chip = e.target.closest('[data-cat]');
+    if (!chip) return;
+    state.cat = chip.dataset.cat;
+    catWrap.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.toggle('active', c === chip); });
+    render();
+  });
+  regionSel.addEventListener('change', function () { state.region = regionSel.value; render(); });
+  sortSel.addEventListener('change', function () { state.sort = sortSel.value; render(); });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

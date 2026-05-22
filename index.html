@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aṣli · ⴰⵚⵍⵉ — Authentic Amazigh & Moroccan Craft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F7EFDF;
+  --cream-deep: #EBDFC4;
+  --sand: #E0D0B0;
+  --ink: #1A0F08;
+  --ink-soft: #5A4632;
+  --terracotta: #B5391C;
+  --terracotta-dark: #7E2310;
+  --coral: #D9583A;
+  --emerald: #1F4D3F;
+  --emerald-deep: #0E2E25;
+  --indigo: #1E3A5F;
+  --indigo-deep: #0E1F37;
+  --tuareg-blue: #1A4D7A;
+  --tuareg-deep: #0A2E4D;
+  --brass: #B8893E;
+  --saffron: #D9A12D;
+  --saffron-light: #E8C065;
+  --wine: #6D1B12;
+  --berber-coral: #C9492E;
+  --line: #C9B68E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1000;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.tf { font-family: 'Noto Sans Tifinagh', sans-serif; font-weight: 400; }
+.serif { font-family: 'Fraunces', serif; }
+
+/* === ORNAMENTAL DIVIDER === */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 36px 24px;
+  color: var(--terracotta);
+}
+.ornament::before, .ornament::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  max-width: 200px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.ornament-star { width: 26px; height: 26px; }
+.ornament-star svg { width: 100%; height: 100%; }
+
+/* === ANNOUNCEMENT === */
+.announce {
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  text-align: center;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.announce .sep { color: var(--saffron); opacity: 0.8; }
+.announce .tf { font-size: 0.85rem; letter-spacing: 0.05em; text-transform: none; color: var(--saffron); }
+
+/* === NAV === */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 56px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(8px);
+}
+.logo-wrap { display: flex; align-items: center; gap: 14px; }
+.logo-mark {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--terracotta);
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.95rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  font-variation-settings: 'SOFT' 100;
+}
+.logo-tf {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 1rem;
+  color: var(--terracotta);
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+}
+.nav-links {
+  display: flex; gap: 36px;
+  list-style: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.nav-links a {
+  color: var(--ink); text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--terracotta); }
+.nav-icons { display: flex; gap: 20px; align-items: center; }
+.nav-icons button {
+  background: none; border: none; cursor: pointer;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 6px;
+}
+.cart-count {
+  background: var(--terracotta);
+  color: var(--cream);
+  width: 19px; height: 19px;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+
+/* === HERO === */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  min-height: 90vh;
+  align-items: stretch;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  background: var(--cream);
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23B5391C' stroke-width='0.5' opacity='0.08'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-text {
+  padding: 70px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  color: var(--terracotta);
+  display: flex; align-items: center; gap: 14px;
+  font-weight: 700;
+}
+.hero-eyebrow .tf {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--terracotta);
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 5.8vw, 5.4rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+.hero h1 em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+.hero p.lead {
+  font-size: 1.06rem;
+  max-width: 480px;
+  color: var(--ink-soft);
+  margin-bottom: 38px;
+  line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center; gap: 10px;
+  padding: 18px 32px;
+  border: none;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover { background: var(--terracotta); transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 18px 4px;
+}
+.btn-ghost:hover { background: transparent; color: var(--terracotta); border-color: var(--terracotta); transform: translateX(4px); }
+
+.hero-meta {
+  display: flex;
+  gap: 44px;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
+.hero-meta strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 2px;
+  letter-spacing: -0.02em;
+}
+
+.hero-visual {
+  background: var(--cream);
+  padding: 50px 50px 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.arch {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 3/4.4;
+  background: linear-gradient(155deg, #C99240 0%, #B5391C 50%, #6D1B12 100%);
+  border-radius: 50% 50% 12px 12px / 35% 35% 12px 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(110, 27, 18, 0.4);
+}
+.arch::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(247, 239, 223, 0.3);
+  border-radius: 50% 50% 8px 8px / 35% 35% 8px 8px;
+  pointer-events: none;
+}
+.arch-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.6' opacity='0.18'%3E%3Crect x='10' y='10' width='24' height='24'/%3E%3Crect x='10' y='10' width='24' height='24' transform='rotate(45 22 22)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.arch-tifinagh {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 5.5rem;
+  color: rgba(247, 239, 223, 0.18);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+.arch-content {
+  position: absolute;
+  bottom: 40px;
+  left: 36px;
+  right: 36px;
+  color: var(--cream);
+  text-align: center;
+}
+.arch-tag {
+  display: inline-block;
+  border: 1px solid rgba(247, 239, 223, 0.5);
+  padding: 5px 14px;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.arch-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.85rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.arch-content p {
+  font-size: 0.84rem;
+  opacity: 0.85;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+}
+
+/* === MARQUEE === */
+.marquee {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 22px 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.marquee-track {
+  display: flex;
+  gap: 50px;
+  white-space: nowrap;
+  animation: scroll 38s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  font-style: italic;
+}
+.marquee-track .tf {
+  font-style: normal;
+  font-size: 1.5rem;
+  color: var(--saffron);
+  letter-spacing: 0.05em;
+}
+.marquee-track span.item { display: flex; align-items: center; gap: 50px; }
+.marquee-track .star { color: var(--saffron); font-size: 1rem; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* === SECTION === */
+.section {
+  padding: 100px 56px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+.section-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 14px;
+  font-weight: 700;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow .tf {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 700px;
+}
+.section-title em { font-style: italic; color: var(--terracotta); }
+.section-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink);
+  transition: all 0.3s;
+}
+.section-link:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+/* === PRODUCT GRID === */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px 28px;
+}
+.product { cursor: pointer; position: relative; }
+.product-img {
+  aspect-ratio: 4/5.2;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 50% 50% 6px 6px / 22% 22% 6px 6px;
+  background: var(--sand);
+}
+.product-img-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(247, 239, 223, 0.9);
+  letter-spacing: 0.02em;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  padding: 30px 20px;
+  line-height: 1.35;
+}
+.product-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product:hover .product-photo { transform: scale(1.08); }
+.product:hover .product-img-inner { transform: scale(1.06); }
+.product-img-1 { background: linear-gradient(155deg, #C99240 0%, #8B4A24 100%); }
+.product-img-2 { background: linear-gradient(155deg, #2C5A87 0%, #0E1F37 100%); }
+.product-img-3 { background: linear-gradient(155deg, #D9A12D 0%, #8A6422 100%); }
+.product-img-4 { background: linear-gradient(155deg, #B5391C 0%, #6D1B12 100%); }
+.product-img-5 { background: linear-gradient(155deg, #E0D0B0 0%, #B5A380 100%); }
+.product-img-5 .product-img-inner { color: rgba(26, 15, 8, 0.6); }
+.product-img-6 { background: linear-gradient(155deg, #1F4D3F 0%, #0E2E25 100%); }
+.product-img-7 { background: linear-gradient(155deg, #B8893E 0%, #5C3E10 100%); }
+.product-img-8 { background: linear-gradient(155deg, #6D1B12 0%, #2E0908 100%); }
+
+.product-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.5' opacity='0.12'%3E%3Crect x='12' y='12' width='26' height='26'/%3E%3Crect x='12' y='12' width='26' height='26' transform='rotate(45 25 25)'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.product-badge {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  font-weight: 700;
+  z-index: 3;
+  border: 1px solid var(--terracotta);
+  color: var(--terracotta);
+}
+.product-quick {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+}
+.product:hover .product-quick { transform: translateY(0); }
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 4px;
+}
+.product-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+.product-region {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+}
+.product-region .yaz {
+  color: var(--terracotta);
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-style: normal;
+  margin: 0 6px;
+}
+.product-price {
+  font-family: 'Fraunces', serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--terracotta);
+}
+
+/* === CALLIGRAPHY / TIFINAGH BREAK === */
+.calligraphy-break {
+  background: var(--terracotta);
+  color: var(--cream);
+  padding: 130px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.calligraphy-break::before, .calligraphy-break::after {
+  content: '';
+  position: absolute;
+  width: 260px; height: 260px;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.7' opacity='0.45'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+.calligraphy-break::before { top: -60px; left: -60px; }
+.calligraphy-break::after { bottom: -60px; right: -60px; }
+
+.tifinagh-mega {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 32px;
+  color: var(--saffron-light);
+  letter-spacing: 0.08em;
+  position: relative; z-index: 2;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+.calligraphy-meaning {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  max-width: 760px;
+  margin: 0 auto 20px;
+  color: var(--cream);
+  position: relative; z-index: 2;
+  line-height: 1.4;
+}
+.calligraphy-meaning em { font-style: normal; font-weight: 500; color: var(--saffron-light); }
+.calligraphy-sub {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  max-width: 580px;
+  margin: 0 auto;
+  color: rgba(247, 239, 223, 0.8);
+  position: relative; z-index: 2;
+  line-height: 1.65;
+}
+.calligraphy-attribution {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-top: 36px;
+  color: rgba(247, 239, 223, 0.55);
+  font-weight: 700;
+  position: relative; z-index: 2;
+}
+
+/* === STORY === */
+.story {
+  background: var(--emerald);
+  color: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.story-visual {
+  background: linear-gradient(160deg, #2E6856 0%, #1F4D3F 50%, #0E2E25 100%);
+  min-height: 620px;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.story-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D9A12D' stroke-width='0.7' opacity='0.2'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3C/g%3E%3C/svg%3E");
+}
+.story-arch {
+  width: 70%;
+  max-width: 360px;
+  aspect-ratio: 3/4.6;
+  background: linear-gradient(155deg, rgba(217, 161, 45, 0.25) 0%, rgba(184, 137, 62, 0.1) 100%);
+  border: 1px solid rgba(217, 161, 45, 0.4);
+  border-radius: 50% 50% 8px 8px / 32% 32% 8px 8px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+.story-arch-tifinagh {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 3.6rem;
+  color: var(--saffron);
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: 0.06em;
+}
+.story-arch-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--cream);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+.story-arch-text em { font-style: normal; color: var(--saffron); }
+.story-content {
+  padding: 90px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.story-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 700;
+}
+.story-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--saffron);
+}
+.story-eyebrow .tf {
+  font-size: 1rem; letter-spacing: 0.05em; text-transform: none;
+  font-weight: 400; color: rgba(247, 239, 223, 0.6);
+}
+.story h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 28px;
+}
+.story h2 em { font-style: italic; color: var(--saffron); }
+.story p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(247, 239, 223, 0.78);
+  max-width: 480px;
+  margin-bottom: 18px;
+}
+.story-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 46px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(247, 239, 223, 0.15);
+}
+.story-stat strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--saffron);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.story-stat span {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 223, 0.55);
+}
+
+/* === CATEGORIES === */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.category {
+  aspect-ratio: 4/5.2;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 36px;
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 50% 50% 6px 6px / 22% 22% 6px 6px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.category::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  transition: all 0.6s;
+}
+.category::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.5' opacity='0.15'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.category-1::before { background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%), linear-gradient(155deg, #8B4A24 0%, #4A2810 100%); }
+.category-2::before { background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%), linear-gradient(155deg, #1A4D7A 0%, #0A2E4D 100%); }
+.category-3::before { background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%), linear-gradient(155deg, #1F4D3F 0%, #0E2E25 100%); }
+.category:hover::before { filter: brightness(1.1); }
+.category-content { position: relative; z-index: 2; transition: transform 0.5s; }
+.category:hover .category-content { transform: translateY(-6px); }
+.category-number {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--saffron);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.category-number::after {
+  content: '';
+  width: 24px; height: 1px; background: var(--saffron);
+}
+.category-title {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.category-meta {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+.category-tifinagh {
+  position: absolute;
+  top: 30px; left: 36px;
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 1.7rem;
+  color: var(--saffron);
+  z-index: 2;
+  opacity: 0.9;
+  letter-spacing: 0.08em;
+}
+.category-arrow {
+  position: absolute;
+  top: 36px; right: 36px;
+  width: 46px; height: 46px;
+  border: 1px solid rgba(247, 239, 223, 0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: all 0.4s;
+}
+.category:hover .category-arrow { background: var(--saffron); color: var(--ink); border-color: var(--saffron); }
+
+/* === ARTISAN === */
+.artisan {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 80px;
+  padding: 110px 56px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream-deep);
+  position: relative;
+}
+.artisan-visual {
+  aspect-ratio: 3/4;
+  background: linear-gradient(155deg, #C99240 0%, #8B4A24 50%, #4A2810 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 50% 50% 8px 8px / 28% 28% 8px 8px;
+}
+.artisan-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.5' opacity='0.18'%3E%3Crect x='12' y='12' width='26' height='26'/%3E%3Crect x='12' y='12' width='26' height='26' transform='rotate(45 25 25)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.artisan-tag {
+  position: absolute;
+  top: 28px; left: 28px;
+  background: var(--cream);
+  color: var(--terracotta);
+  padding: 8px 14px;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  z-index: 2;
+}
+.artisan-tifinagh {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 4rem;
+  color: rgba(247, 239, 223, 0.2);
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+.artisan-caption {
+  position: absolute;
+  bottom: 36px; left: 36px; right: 36px;
+  color: var(--cream);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1rem;
+  z-index: 2;
+}
+.artisan-caption span {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  opacity: 0.65;
+  font-weight: 600;
+}
+.artisan-content .section-eyebrow { margin-bottom: 18px; }
+.artisan h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 26px;
+}
+.artisan h2 em { font-style: italic; color: var(--terracotta); }
+.artisan p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  line-height: 1.7;
+  max-width: 540px;
+}
+.artisan-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink);
+  padding: 26px 0 26px 28px;
+  border-left: 3px solid var(--terracotta);
+  margin: 32px 0;
+  max-width: 520px;
+  position: relative;
+}
+.artisan-quote::before {
+  content: '"';
+  position: absolute;
+  top: -10px; left: 18px;
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  color: var(--terracotta);
+  opacity: 0.4;
+}
+.artisan-quote .author {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 18px;
+  font-weight: 700;
+}
+
+/* === PRESS === */
+.press {
+  padding: 50px 56px;
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.press-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+.press-label .tf { font-size: 0.95rem; letter-spacing: 0.05em; text-transform: none; }
+.press-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--cream);
+  opacity: 0.6;
+}
+.press-logos span { transition: opacity 0.3s, color 0.3s; }
+.press-logos span:hover { opacity: 1; color: var(--saffron); }
+
+/* === NEWSLETTER === */
+.newsletter {
+  padding: 130px 56px;
+  text-align: center;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.newsletter::before, .newsletter::after {
+  content: '';
+  position: absolute;
+  width: 180px; height: 180px;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23B5391C' stroke-width='0.6' opacity='0.25'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.newsletter::before { top: 40px; left: 5%; }
+.newsletter::after { bottom: 40px; right: 5%; }
+.newsletter-tifinagh {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 1.7rem;
+  color: var(--terracotta);
+  margin-bottom: 20px;
+  position: relative; z-index: 2;
+  letter-spacing: 0.08em;
+}
+.newsletter h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 800px;
+  margin: 0 auto 24px;
+  position: relative; z-index: 2;
+}
+.newsletter h2 em { font-style: italic; color: var(--terracotta); }
+.newsletter p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 0 auto 42px;
+  position: relative; z-index: 2;
+}
+.newsletter-form {
+  display: flex;
+  max-width: 480px;
+  margin: 0 auto;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 4px;
+  position: relative; z-index: 2;
+}
+.newsletter-form input {
+  flex: 1; border: none; background: transparent;
+  font-family: inherit; font-size: 1rem;
+  padding: 16px 0; color: var(--ink); outline: none;
+}
+.newsletter-form input::placeholder { color: var(--ink-soft); }
+.newsletter-form button {
+  background: transparent; border: none; cursor: pointer;
+  font-family: inherit; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--terracotta); padding: 16px 0 16px 20px;
+  transition: color 0.3s;
+}
+.newsletter-form button:hover { color: var(--ink); }
+
+/* === FOOTER === */
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 80px 56px 30px;
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D9A12D' stroke-width='0.5' opacity='0.06'%3E%3Crect x='25' y='25' width='50' height='50'/%3E%3Crect x='25' y='25' width='50' height='50' transform='rotate(45 50 50)'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(247, 239, 223, 0.15);
+  position: relative; z-index: 2;
+}
+.footer-brand-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  font-variation-settings: 'SOFT' 100;
+}
+.footer-brand-tf {
+  font-family: 'Noto Sans Tifinagh', sans-serif;
+  font-size: 1.5rem;
+  color: var(--saffron);
+  letter-spacing: 0.08em;
+}
+.footer-tag {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: rgba(247, 239, 223, 0.7);
+  font-size: 1.05rem;
+  max-width: 360px;
+  line-height: 1.5;
+}
+.footer-col h4 {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  color: var(--saffron);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-col h4 .tf { font-size: 0.95rem; letter-spacing: 0.05em; text-transform: none; opacity: 0.7; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a {
+  color: rgba(247, 239, 223, 0.7);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--saffron); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  font-size: 0.78rem;
+  color: rgba(247, 239, 223, 0.5);
+  letter-spacing: 0.04em;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: relative; z-index: 2;
+}
+.footer-bottom .tf { color: var(--saffron); font-size: 1rem; letter-spacing: 0.05em; }
+.footer-bottom .social { display: flex; gap: 22px; }
+.footer-bottom .social a { color: rgba(247, 239, 223, 0.5); text-decoration: none; transition: color 0.3s; }
+.footer-bottom .social a:hover { color: var(--saffron); }
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { padding: 50px; min-height: 500px; }
+  .story { grid-template-columns: 1fr; }
+  .story-visual { min-height: 480px; padding: 60px 0; }
+  .artisan { grid-template-columns: 1fr; gap: 50px; }
+  .categories-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 640px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .section { padding: 70px 24px; }
+  .hero-text { padding: 60px 28px; }
+  .hero-visual { padding: 30px 28px; }
+  .story-content { padding: 70px 28px; }
+  .artisan { padding: 70px 24px; }
+  .newsletter { padding: 80px 24px; }
+  .calligraphy-break { padding: 90px 24px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+  footer { padding: 60px 24px 24px; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .press-logos { gap: 30px; }
+}
+
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- === ANNOUNCEMENT === -->
+<div class="announce">
+  <span>Free worldwide DHL shipping over $150</span>
+  <span class="sep">✦</span>
+  <span>Ships from Marrakech in 2–4 days</span>
+  <span class="sep">✦</span>
+  <span class="tf">ⵙⵉⵏ ⵉⴼⵓⵙⵙⵏ</span>
+  <span>40+ Amazigh artisans</span>
+</div>
+
+<!-- === NAV === -->
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="8" y="8" width="24" height="24"/>
+          <rect x="8" y="8" width="24" height="24" transform="rotate(45 20 20)"/>
+          <circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="logo">Aṣli</div>
+      <div class="logo-tf">ⴰⵚⵍⵉ</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#categories">Collections</a></li>
+    <li><a href="heritage.html">Heritage</a></li>
+    <li><a href="#artisans">Artisans</a></li>
+    <li><a href="#story">Our Story</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button>Search</button>
+    <button>Account</button>
+    <button data-cart-open>Cart <span class="cart-count">0</span></button>
+  </div>
+</nav>
+
+<!-- === HERO === -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <span>From the Atlas, to your home</span>
+      <span class="tf">·  ⵙⴳ ⵉⴷⵓⵔⴰⵔ</span>
+    </div>
+    <h1>The soul of <em>Amazigh</em><br>craft, woven by hand.</h1>
+    <p class="lead">
+      Authentic Berber rugs, hand-stitched leather, brass lanterns, and slow-crafted treasures made by master artisans of the Atlas, the Rif, and the desert. Sourced direct from the makers. Shipped worldwide.
+    </p>
+    <div class="hero-actions">
+      <a href="shop.html" class="btn">Shop the collection</a>
+      <a href="#story" class="btn-ghost btn">Our story →</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>40+</strong>Master artisans</div>
+      <div><strong>4.9★</strong>1,200+ reviews</div>
+      <div><strong>60</strong>Countries shipped</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="arch">
+      <div class="arch-pattern"></div>
+      <div class="arch-tifinagh">ⴰⵚⵍⵉ</div>
+      <div class="arch-content">
+        <span class="arch-tag">New Arrival</span>
+        <h3>Atlas Wool Pouf<br>« Saharan Sand »</h3>
+        <p>Hand-stitched · Marrakech</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === MARQUEE === -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="item">
+      Handmade by Amazigh hands <span class="star">✦</span>
+      <span class="tf">ⵉⵎⴰⵣⵉⵖⵏ</span> <span class="star">✦</span>
+      From the Atlas mountains <span class="star">✦</span>
+      <span class="tf">ⴰⵟⵍⴰⵚ</span> <span class="star">✦</span>
+      Authentic · Fair trade <span class="star">✦</span>
+      <span class="tf">ⴰⵚⵍⵉ</span> <span class="star">✦</span>
+      Handmade by Amazigh hands <span class="star">✦</span>
+      <span class="tf">ⵉⵎⴰⵣⵉⵖⵏ</span> <span class="star">✦</span>
+      From the Atlas mountains <span class="star">✦</span>
+      <span class="tf">ⴰⵟⵍⴰⵚ</span> <span class="star">✦</span>
+      Authentic · Fair trade <span class="star">✦</span>
+      <span class="tf">ⴰⵚⵍⵉ</span> <span class="star">✦</span>
+    </span>
+  </div>
+</div>
+
+<!-- === ORNAMENT === -->
+<div class="ornament">
+  <div class="ornament-star">
+    <svg viewBox="0 0 26 26"><g fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="5" width="16" height="16"/><rect x="5" y="5" width="16" height="16" transform="rotate(45 13 13)"/></g></svg>
+  </div>
+</div>
+
+<!-- === FEATURED PRODUCTS === -->
+<section class="section" id="shop">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">
+        <span>Featured · Edition 01</span>
+        <span class="tf">·  ⵉⵅⵟⴰⵔⵏ</span>
+      </div>
+      <h2 class="section-title">Bestsellers, <em>direct from the souk.</em></h2>
+    </div>
+    <a href="shop.html" class="section-link">View all products →</a>
+  </div>
+
+  <div class="product-grid">
+    <a href="product-page.html" class="product" style="text-decoration:none;color:inherit;display:block;">
+      <div class="product-img product-img-1">
+        <img class="product-photo" src="https://loremflickr.com/640/800/moroccan,leather,pouf,ottoman?lock=11" alt="Moroccan leather pouf" loading="lazy">
+        <span class="product-badge">Bestseller</span>
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Atlas Leather Pouf</div>
+          <div class="product-region">Marrakech <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$89</div>
+      </div>
+    </a>
+
+    <div class="product">
+      <div class="product-img product-img-2">
+        <img class="product-photo" src="https://loremflickr.com/640/800/moroccan,brass,lantern?lock=22" alt="Moroccan brass lantern" loading="lazy">
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Pierced Brass Lantern</div>
+          <div class="product-region">Fes <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$74</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img product-img-3">
+        <img class="product-photo" src="https://loremflickr.com/640/800/babouches,moroccan,slippers?lock=33" alt="Moroccan babouches leather slippers" loading="lazy">
+        <span class="product-badge">New</span>
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Handmade Babouches</div>
+          <div class="product-region">Tangier <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$42</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img product-img-4">
+        <img class="product-photo" src="https://loremflickr.com/640/800/tagine,moroccan,ceramic?lock=44" alt="Moroccan tagine ceramic" loading="lazy">
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Glazed Cooking Tagine</div>
+          <div class="product-region">Safi <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$58</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img product-img-5">
+        <img class="product-photo" src="https://loremflickr.com/640/800/moroccan,basket,straw,bag?lock=55" alt="Moroccan straw basket" loading="lazy">
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Woven Souk Basket</div>
+          <div class="product-region">Salé <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$36</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img product-img-6">
+        <img class="product-photo" src="https://loremflickr.com/640/800/beni,ourain,rug,berber?lock=66" alt="Beni Ourain Berber rug" loading="lazy">
+        <span class="product-badge">Limited</span>
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Beni Ourain Berber Rug</div>
+          <div class="product-region">Atlas Mountains <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$640</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img product-img-7">
+        <img class="product-photo" src="https://loremflickr.com/640/800/argan,oil,bottle,cosmetic?lock=77" alt="Argan oil bottle" loading="lazy">
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Pure Argan Oil</div>
+          <div class="product-region">Essaouira <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$28</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img product-img-8">
+        <img class="product-photo" src="https://loremflickr.com/640/800/moroccan,embroidered,cushion,pillow?lock=88" alt="Moroccan embroidered cushion" loading="lazy">
+        <div class="product-quick">Quick add +</div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Hand-Embroidered Cushion</div>
+          <div class="product-region">Chefchaouen <span class="yaz">ⵣ</span> Morocco</div>
+        </div>
+        <div class="product-price">$48</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === TIFINAGH BREAK === -->
+<section class="calligraphy-break">
+  <div class="tifinagh-mega">ⴰⵚⵍⵉ</div>
+  <div class="calligraphy-meaning">
+    Aṣli — in <em>Tamazight,</em> the language of the original people of Morocco,<br>it means «authentic, original, true».
+  </div>
+  <div class="calligraphy-sub">
+    For 3,000 years, the Imaziɣen (ⵉⵎⴰⵣⵉⵖⵏ — "the free people") of the Atlas have shaped what cannot be made by machines. Every piece here carries their hands.
+  </div>
+  <div class="calligraphy-attribution">— The meaning of our name</div>
+</section>
+
+<!-- === STORY === -->
+<section class="story" id="story">
+  <div class="story-visual">
+    <div class="story-arch">
+      <div class="story-arch-tifinagh">ⴰⵚⵍⵉ</div>
+      <div class="story-arch-text">
+        means <em>« authentic »</em><br>in Tamazight,<br>the language of the<br>Amazigh people
+      </div>
+    </div>
+  </div>
+  <div class="story-content">
+    <div class="story-eyebrow">
+      <span>Our story</span>
+      <span class="tf">·  ⴰⵎⵣⵔⵓⵢ</span>
+    </div>
+    <h2>Aṣli means <em>real.</em><br>And nothing is more real<br>than this.</h2>
+    <p>
+      We started in a small Casablanca apartment with one belief — the world deserves to see the real Morocco. Not the airport-souvenir version, but the slow craft passed down through generations of Amazigh, Berber, and Arab artisans.
+    </p>
+    <p>
+      Every piece is sourced directly from the makers — most of them women from cooperatives in the Atlas Mountains. No middlemen, no warehouses, no compromise. Just authentic craft, made the way it has been made for centuries — by hand.
+    </p>
+
+    <div class="story-stats">
+      <div class="story-stat">
+        <strong>100%</strong>
+        <span>Handmade</span>
+      </div>
+      <div class="story-stat">
+        <strong>40+</strong>
+        <span>Artisan partners</span>
+      </div>
+      <div class="story-stat">
+        <strong>0</strong>
+        <span>Middlemen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === CATEGORIES === -->
+<section class="section" id="categories">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">
+        <span>Collections</span>
+        <span class="tf">·  ⵜⵉⴳⵓⴷⵉⵡⵉⵏ</span>
+      </div>
+      <h2 class="section-title">Shop by <em>craft.</em></h2>
+    </div>
+    <a href="shop.html" class="section-link">All collections →</a>
+  </div>
+
+  <div class="categories-grid">
+    <a href="shop.html?cat=Leather%20%26%20Stitching" class="category category-1">
+      <div class="category-tifinagh">ⴰⵍⵎ</div>
+      <div class="category-arrow">→</div>
+      <div class="category-content">
+        <div class="category-number">N° 01</div>
+        <div class="category-title">Leather &<br>Stitching</div>
+        <div class="category-meta">Poufs · Babouches · Bags · 62 items</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=Home%20%26%20Decor" class="category category-2">
+      <div class="category-tifinagh">ⵜⴰⴷⴷⴰⵔⵜ</div>
+      <div class="category-arrow">→</div>
+      <div class="category-content">
+        <div class="category-number">N° 02</div>
+        <div class="category-title">Home &<br>Decor</div>
+        <div class="category-meta">Lanterns · Tagines · Baskets · 88 items</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=Beauty%20%26%20Rituals" class="category category-3">
+      <div class="category-tifinagh">ⵜⴰⵣⴻⵍⵍⵉⵜ</div>
+      <div class="category-arrow">→</div>
+      <div class="category-content">
+        <div class="category-number">N° 03</div>
+        <div class="category-title">Beauty &<br>Rituals</div>
+        <div class="category-meta">Argan · Rose · Black soap · 24 items</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- === ARTISAN === -->
+<section class="artisan" id="artisans">
+  <div class="artisan-visual">
+    <img class="product-photo" src="https://loremflickr.com/640/800/moroccan,berber,woman,weaver,artisan?lock=99" alt="Berber artisan weaver" loading="lazy" style="z-index:0;">
+    <span class="artisan-tag">Artisan · N° 07</span>
+    <div class="artisan-tifinagh" style="z-index:2;">ⴼⴰⵟⵉⵎⴰ</div>
+    <div class="artisan-caption" style="background:linear-gradient(transparent, rgba(0,0,0,0.7));padding:30px 36px 36px;left:0;right:0;bottom:0;">
+      Fatima Z., master weaver
+      <span>Aït Bouguemez <span class="yaz" style="color:var(--saffron);font-family:'Noto Sans Tifinagh',sans-serif;">ⵣ</span> 32 years experience</span>
+    </div>
+  </div>
+  <div class="artisan-content">
+    <div class="section-eyebrow">
+      <span>Meet the makers</span>
+      <span class="tf">·  ⵉⵎⵙⵏⴰⵍⵏ</span>
+    </div>
+    <h2>The hands behind <em>every piece.</em></h2>
+    <p>
+      Fatima has been weaving Beni Ourain rugs since she was seven, taught by her grandmother in the Aït Bouguemez valley high in the Atlas. Each of her rugs takes between 30 and 90 days to complete — a single mistake means starting over.
+    </p>
+    <div class="artisan-quote">
+      When you buy one of my rugs, you are not buying a thing. You are buying a year of my life, my mother's stories, my daughter's future.
+      <span class="author">— Fatima Z., Aït Bouguemez</span>
+    </div>
+    <a href="#" class="btn">Meet all our artisans</a>
+  </div>
+</section>
+
+<!-- === PRESS === -->
+<section class="press" id="press">
+  <div class="press-label">As featured in <span class="tf">·  ⴷⴳ</span></div>
+  <div class="press-logos">
+    <span>Vogue Living</span>
+    <span>Architectural Digest</span>
+    <span>Kinfolk</span>
+    <span>Condé Nast Traveller</span>
+    <span>Wallpaper*</span>
+  </div>
+</section>
+
+<!-- === NEWSLETTER === -->
+<section class="newsletter">
+  <div class="newsletter-tifinagh">ⴰⵣⵓⵍ</div>
+  <h2>Welcome to the <em>medina.</em></h2>
+  <p>Be the first to hear about new arrivals, artisan stories, and 10% off your first order. <em>Azul</em> means «welcome» in Tamazight.</p>
+  <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').innerText='Tanmmirt ✦ Welcome';">
+    <input type="email" placeholder="your@email.com" required>
+    <button type="submit">Subscribe →</button>
+  </form>
+</section>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-wrap">
+        <div class="footer-brand">Aṣli</div>
+        <div class="footer-brand-tf">ⴰⵚⵍⵉ</div>
+      </div>
+      <p class="footer-tag">Authentic Amazigh & Moroccan craft, sourced directly from the artisans of the Atlas, Marrakech, Fes, and the desert.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop <span class="tf">ⴰⵙⵙⴰⵖ</span></h4>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="shop.html?cat=Rugs">Rugs</a></li>
+        <li><a href="shop.html?cat=Leather%20%26%20Stitching">Leather</a></li>
+        <li><a href="shop.html?cat=Home%20%26%20Decor">Home Decor</a></li>
+        <li><a href="shop.html?cat=Beauty%20%26%20Rituals">Beauty</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help <span class="tf">ⵜⵉⵡⵉⵙⵉ</span></h4>
+      <ul>
+        <li><a href="contact.html#faq">Shipping</a></li>
+        <li><a href="contact.html#faq">Returns</a></li>
+        <li><a href="contact.html#faq">FAQ</a></li>
+        <li><a href="contact.html#faq">Care Guide</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About <span class="tf">ⵖⴼⵏⵏⵖ</span></h4>
+      <ul>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#artisans">Artisans</a></li>
+        <li><a href="#">Journal</a></li>
+        <li><a href="heritage.html">Sustainability</a></li>
+        <li><a href="#press">Press</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Aṣli · Made with love in Casablanca · <span class="tf">ⵜⴰⵏⵎⵎⵉⵔⵜ</span> (thank you)</div>
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/asli.js"></script>
+<script>
+// Link each static product card to its dynamic product page; quick-add is
+// handled globally by js/asli.js via the data-id we assign here.
+document.querySelectorAll('.product').forEach(function (card) {
+  var nameEl = card.querySelector('.product-name');
+  if (!nameEl) return;
+  var name = nameEl.textContent.trim();
+  var prod = ASLI.products.filter(function (p) { return p.name === name; })[0];
+  if (!prod) return;
+  card.dataset.id = prod.id;
+  if (card.tagName === 'A') {
+    card.setAttribute('href', 'product-page.html?id=' + prod.id);
+  } else {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.product-quick')) return; // quick-add handled by shared engine
+      location.href = 'product-page.html?id=' + prod.id;
+    });
+  }
+});
+
+// scroll reveal (revealed by the IntersectionObserver in js/asli.js)
+document.querySelectorAll('.section-header, .product, .story-content, .category, .artisan-content, .tifinagh-mega, .calligraphy-meaning').forEach(function (el) {
+  el.classList.add('fade-up');
+});
+if (window.ASLI && ASLI.observeReveal) ASLI.observeReveal();
+</script>
+
+</body>
+</html>

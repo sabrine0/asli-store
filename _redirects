@@ -1,0 +1,13 @@
+# Netlify clean URLs — keep the short path in the address bar (200 = rewrite, not a bounce).
+# Share https://YOURSITE.netlify.app/shop instead of /shop.html, etc.
+
+/home       /index.html          200
+/shop       /shop.html           200
+/product    /product-page.html   200
+/heritage   /heritage.html       200
+/cart       /cart.html           200
+/checkout   /checkout.html       200
+/contact    /contact.html        200
+
+# Note: /product with no ?id= shows the first product by default.
+# Unknown paths automatically fall back to 404.html (Netlify default).
