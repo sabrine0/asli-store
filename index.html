@@ -1579,6 +1579,8 @@ document.querySelectorAll('.product').forEach(function (card) {
   var prod = ASLI.products.filter(function (p) { return p.name === name; })[0];
   if (!prod) return;
   card.dataset.id = prod.id;
+  var ph = card.querySelector('.product-photo');
+  if (ph) ph.src = ASLI.productImg(prod); // use real photo at images/<id>.jpg (branded tile until added)
   if (card.tagName === 'A') {
     card.setAttribute('href', 'product-page.html?id=' + prod.id);
   } else {

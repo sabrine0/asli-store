@@ -147,10 +147,40 @@
   ];
 
   /* ---------- helpers ---------- */
-  ASLI.imgUrl = function (kw, lock, w, h) {
-    return 'https://loremflickr.com/' + (w || 640) + '/' + (h || 800) + '/' + kw + '?lock=' + lock;
+  ASLI.IMG_DIR = 'images/';
+
+  // Branded SVG placeholder shown only until a real photo exists at images/<id>.jpg.
+  ASLI.fallbackImg = function (label) {
+    label = String(label || 'Aṣli').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    var svg =
+      "<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'>" +
+        "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>" +
+          "<stop offset='0' stop-color='#C99240'/><stop offset='0.55' stop-color='#B5391C'/><stop offset='1' stop-color='#6D1B12'/>" +
+        "</linearGradient></defs>" +
+        "<rect width='400' height='500' fill='url(#g)'/>" +
+        "<g fill='none' stroke='#F7EFDF' stroke-width='1' opacity='0.18'>" +
+          "<rect x='158' y='150' width='84' height='84'/>" +
+          "<rect x='158' y='150' width='84' height='84' transform='rotate(45 200 192)'/>" +
+        "</g>" +
+        "<text x='200' y='322' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='#F7EFDF'>" + label + "</text>" +
+        "<text x='200' y='432' text-anchor='middle' font-family='Arial,sans-serif' font-size='11' letter-spacing='3' fill='#F7EFDF' opacity='0.7'>PHOTO COMING SOON</text>" +
+      "</svg>";
+    return 'data:image/svg+xml,' + encodeURIComponent(svg);
   };
-  ASLI.productImg = function (p, w, h) { return p ? ASLI.imgUrl(p.kw, p.lock, w, h) : ''; };
+
+  // Build keyword -> product map once, so legacy imgUrl(kw,...) calls resolve to local photos.
+  var _kwMap = null;
+  function kwMap() { if (!_kwMap) { _kwMap = {}; ASLI.products.forEach(function (p) { _kwMap[p.kw] = p; }); } return _kwMap; }
+
+  // Real product photo: drop a file at images/<id>.jpg (or set product.image) and it shows automatically.
+  ASLI.productImg = function (p) { return p ? (p.image || ASLI.IMG_DIR + p.id + '.jpg') : ASLI.fallbackImg(); };
+
+  // Back-compat shim — existing pages call imgUrl(kw, lock, w, h). Resolve to the local
+  // product photo when keywords match a product, otherwise a branded placeholder.
+  ASLI.imgUrl = function (kw, lock, w, h) {
+    var p = kwMap()[kw];
+    return p ? ASLI.productImg(p) : ASLI.fallbackImg();
+  };
   ASLI.getProduct = function (id) {
     for (var i = 0; i < ASLI.products.length; i++) if (ASLI.products[i].id === id) return ASLI.products[i];
     return null;
@@ -512,9 +542,19 @@
     });
   }
 
+  /* ---------- images: replace any stray random-service photos ---------- */
+  function fixImages() {
+    document.querySelectorAll('img[src*="loremflickr"]').forEach(function (img) {
+      if (img.dataset.asliFallback) return;
+      img.dataset.asliFallback = '1';
+      img.src = ASLI.fallbackImg(img.getAttribute('alt') || 'Aṣli');
+    });
+  }
+
   /* ---------- boot ---------- */
   function boot() {
     injectStyles();
+    fixImages();
     buildDrawer();
     buildMobileMenu();
     wireClicks();
@@ -532,6 +572,16 @@
 
   function escAttr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }
   ASLI.escAttr = escAttr;
+
+  // Catch missing local photos as early as possible (before page scripts set <img> src),
+  // so a not-yet-added photo shows the branded placeholder instead of a broken image.
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || img.dataset.asliFallback) return;
+    if (String(img.src).indexOf('data:image/svg') === 0) return;
+    img.dataset.asliFallback = '1';
+    img.src = ASLI.fallbackImg(img.getAttribute('alt') || 'Aṣli');
+  }, true);
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
