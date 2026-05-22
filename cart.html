@@ -108,13 +108,13 @@
 
 <script src="js/asli.js"></script>
 <script>
-(function () {
+ASLI.ready(function () {
   var page = document.getElementById('cartPage');
 
   function lineHtml(l) {
     var p = l.product;
     return '<div class="cart-line" data-line data-id="' + p.id + '" data-variant="' + ASLI.escAttr(l.variant) + '">' +
-      '<a class="cart-line-img" href="product-page.html?id=' + p.id + '"><img src="' + ASLI.imgUrl(p.kw, p.lock, 240, 300) + '" alt="' + ASLI.escAttr(p.name) + '"></a>' +
+      '<a class="cart-line-img" href="product-page.html?id=' + p.id + '"><img src="' + ASLI.productImg(p) + '" alt="' + ASLI.escAttr(p.name) + '"></a>' +
       '<div>' +
         '<div class="cart-line-name"><a href="product-page.html?id=' + p.id + '">' + p.name + '</a></div>' +
         '<div class="cart-line-region">' + p.region + ' <span class="yaz">ⵣ</span> Morocco</div>' +
@@ -178,7 +178,7 @@
 
   render();
   document.addEventListener('asli:cart', render); // qty/remove fire this from js/asli.js
-})();
+});
 </script>
 
 </body>

@@ -155,7 +155,7 @@
 
 <script src="js/asli.js"></script>
 <script>
-(function () {
+ASLI.ready(function () {
   var grid = document.getElementById('shopGrid');
   var empty = document.getElementById('shopEmpty');
   var catWrap = document.getElementById('catFilters');
@@ -185,7 +185,7 @@
   function card(p) {
     return '<a class="product fade-up" href="product-page.html?id=' + p.id + '" data-id="' + p.id + '">' +
       '<div class="product-img">' +
-        '<img class="product-photo" src="' + ASLI.imgUrl(p.kw, p.lock, 640, 800) + '" alt="' + ASLI.escAttr(p.name) + '" loading="lazy">' +
+        '<img class="product-photo" src="' + ASLI.productImg(p) + '" alt="' + ASLI.escAttr(p.name) + '" loading="lazy">' +
         (p.badge ? '<span class="product-badge">' + p.badge + '</span>' : '') +
         '<span class="product-quick" data-add="' + p.id + '" data-no-drawer role="button">Quick add +</span>' +
       '</div>' +
@@ -221,7 +221,7 @@
   sortSel.addEventListener('change', function () { state.sort = sortSel.value; render(); });
 
   render();
-})();
+});
 </script>
 
 </body>

@@ -325,7 +325,7 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
 
 <script src="js/asli.js"></script>
 <script>
-(function () {
+ASLI.ready(function () {
   var params = new URLSearchParams(location.search);
   var id = params.get('id') || ASLI.products[0].id;
   var p = ASLI.getProduct(id) || ASLI.products[0];
@@ -345,13 +345,13 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
 
   // gallery
   var main = document.getElementById('galleryMain');
-  main.src = ASLI.imgUrl(p.kw, p.lock, 800, 1000);
+  main.src = ASLI.productImg(p);
   main.alt = p.name;
   if (p.badge) { var b = document.getElementById('galleryBadge'); b.textContent = p.badge; b.style.display = ''; }
-  var locks = [p.lock, p.lock + 100, p.lock + 200, p.lock + 300];
-  document.getElementById('thumbnails').innerHTML = locks.map(function (lk, i) {
-    return '<div class="thumb' + (i === 0 ? ' active' : '') + '" data-full="' + ASLI.imgUrl(p.kw, lk, 800, 1000) + '">' +
-      '<img src="' + ASLI.imgUrl(p.kw, lk, 200, 250) + '" alt="' + ASLI.escAttr(p.name) + ' view ' + (i + 1) + '"></div>';
+  var views = [0];
+  document.getElementById('thumbnails').innerHTML = views.map(function (lk, i) {
+    return '<div class="thumb' + (i === 0 ? ' active' : '') + '" data-full="' + ASLI.productImg(p) + '">' +
+      '<img src="' + ASLI.productImg(p) + '" alt="' + ASLI.escAttr(p.name) + ' view ' + (i + 1) + '"></div>';
   }).join('');
   document.querySelectorAll('.thumb').forEach(function (t) {
     t.addEventListener('click', function () {
@@ -443,7 +443,7 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
   if (p.artisan) {
     var a = p.artisan;
     aEl.innerHTML =
-      '<div class="artisan-inline-photo"><img src="' + ASLI.imgUrl(a.kw, a.lock, 800, 1000) + '" alt="' + ASLI.escAttr(a.name) + '"></div>' +
+      '<div class="artisan-inline-photo"><img src="' + (a.image || ASLI.fallbackImg(a.name)) + '" alt="' + ASLI.escAttr(a.name) + '"></div>' +
       '<div class="artisan-inline-content">' +
         '<div class="info-eyebrow"><span>Made by</span> <span class="tf">·  ' + (a.tf || 'ⴰⵎⵙⵏⴰⵍ') + '</span></div>' +
         '<h2>' + a.name + ' —<br><em>' + (a.stats && a.stats[0] ? a.stats[0].n + ' ' + a.stats[0].label.toLowerCase() : 'master of the craft') + '.</em></h2>' +
@@ -454,7 +454,7 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
       '</div>';
   } else {
     aEl.innerHTML =
-      '<div class="artisan-inline-photo"><img src="' + ASLI.imgUrl('moroccan,artisan,workshop,hands', p.lock + 500, 800, 1000) + '" alt="Aṣli artisan"></div>' +
+      '<div class="artisan-inline-photo"><img src="' + ASLI.fallbackImg(p.region) + '" alt="Aṣli artisan"></div>' +
       '<div class="artisan-inline-content">' +
         '<div class="info-eyebrow"><span>Made by hand in</span> <span class="tf">·  ' + (p.catTf || 'ⵉⵎⴰⵣⵉⵖⵏ') + '</span></div>' +
         '<h2>From the hands of <em>' + p.region + '.</em></h2>' +
@@ -471,14 +471,14 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
   // related products
   document.getElementById('relatedGrid').innerHTML = ASLI.getRelated(p.id, 4).map(function (r) {
     return '<a class="product" href="product-page.html?id=' + r.id + '" data-id="' + r.id + '">' +
-      '<div class="product-img"><img class="product-photo" src="' + ASLI.imgUrl(r.kw, r.lock, 600, 750) + '" alt="' + ASLI.escAttr(r.name) + '" loading="lazy">' +
+      '<div class="product-img"><img class="product-photo" src="' + ASLI.productImg(r) + '" alt="' + ASLI.escAttr(r.name) + '" loading="lazy">' +
       (r.badge ? '<span class="product-badge">' + r.badge + '</span>' : '') +
       '<span class="product-quick" data-add="' + r.id + '" data-no-drawer role="button">Quick add +</span></div>' +
       '<div class="product-info"><div><div class="product-name">' + r.name + '</div>' +
       '<div class="product-region">' + r.region + ' <span class="yaz">ⵣ</span> Morocco</div></div>' +
       '<div class="product-price">' + ASLI.money(r.price) + '</div></div></a>';
   }).join('');
-})();
+});
 </script>
 
 </body>

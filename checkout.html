@@ -222,7 +222,7 @@
 
 <script src="js/asli.js"></script>
 <script>
-(function () {
+ASLI.ready(function () {
   var SHIP = { standard: function (sub) { return sub >= ASLI.FREE_SHIP ? 0 : 18; }, express: function () { return 39; } };
   var form = document.getElementById('checkoutForm');
   var page = document.getElementById('checkoutPage');
@@ -245,7 +245,7 @@
     document.getElementById('checkoutLines').innerHTML = lines.map(function (l) {
       var p = l.product;
       return '<div class="checkout-mini-line">' +
-        '<div class="checkout-mini-img"><img src="' + ASLI.imgUrl(p.kw, p.lock, 120, 150) + '" alt="' + ASLI.escAttr(p.name) + '"><span class="checkout-mini-qty">' + l.qty + '</span></div>' +
+        '<div class="checkout-mini-img"><img src="' + ASLI.productImg(p) + '" alt="' + ASLI.escAttr(p.name) + '"><span class="checkout-mini-qty">' + l.qty + '</span></div>' +
         '<div><div class="checkout-mini-name">' + p.name + '</div>' +
         '<div class="checkout-mini-meta">' + (l.variant || p.region) + '</div></div>' +
         '<div class="checkout-mini-price">' + ASLI.money(p.price * l.qty) + '</div>' +
@@ -337,7 +337,7 @@
 
   renderSummary();
   document.addEventListener('asli:cart', renderSummary);
-})();
+});
 </script>
 
 </body>

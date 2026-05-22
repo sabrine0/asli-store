@@ -1,0 +1,95 @@
+# Aṣli — Decap CMS configuration
+# Edits made in the admin are committed to GitHub and auto-deploy via Netlify.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Uploaded photos are saved to /images in the repo; the site references them at /images/...
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "shop"
+    label: "Shop"
+    description: "Add, edit, reorder, or remove the products in your shop."
+    files:
+      - name: "products"
+        label: "Products"
+        file: "data/products.json"
+        format: "json"
+        editor:
+          preview: false
+        fields:
+          - label: "Products"
+            name: "products"
+            label_singular: "Product"
+            widget: "list"
+            summary: "{{fields.name}} — ${{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - label: "ID"
+                name: "id"
+                widget: "string"
+                hint: "Used for the photo filename (images/<id>.jpg) and the product link. Lowercase letters, numbers and dashes only — do not change once a product is live."
+                pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"]
+              - { label: "Price (USD)", name: "price", widget: "number", value_type: "int", min: 0, step: 1 }
+              - { label: "Region", name: "region", widget: "string", hint: "e.g. Marrakech, Fes, Atlas Mountains" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["Leather & Stitching", "Rugs", "Home & Decor", "Beauty & Rituals"]
+              - { label: "Photo", name: "image", widget: "image", required: false, hint: "Upload a product photo. If left empty, the site uses images/<id>.jpg, or a branded placeholder until you add one." }
+              - { label: "Badge", name: "badge", widget: "string", required: false, hint: "Optional ribbon, e.g. Bestseller, New, Limited. Leave empty for none." }
+              - { label: "Short blurb (card)", name: "blurb", widget: "text", required: false }
+              - { label: "Full description (product page)", name: "description", widget: "text", required: false }
+              - { label: "Price note", name: "priceNote", widget: "string", required: false, hint: "Small note under the price, e.g. '50ml · cold-pressed'." }
+              - { label: "Tifinagh category tag", name: "catTf", widget: "string", required: false, hint: "Optional ⵜⵉⴼⵉⵏⴰⵖ label shown on the product page." }
+              - label: "Sizes"
+                name: "sizes"
+                widget: "list"
+                required: false
+                hint: "Optional. Add the size options buyers can choose."
+                field: { label: "Size", name: "size", widget: "string" }
+              - { label: "Default size (0 = first)", name: "defaultSize", widget: "number", required: false, value_type: "int", min: 0 }
+              - label: "Colours"
+                name: "colors"
+                widget: "list"
+                required: false
+                hint: "Optional colour options."
+                fields:
+                  - { label: "Colour name", name: "name", widget: "string" }
+                  - { label: "Swatch CSS", name: "css", widget: "string", hint: "A CSS colour or gradient, e.g. linear-gradient(135deg, #D4A574, #B5824A)" }
+              - label: "Details (accordion)"
+                name: "details"
+                widget: "list"
+                required: false
+                hint: "Optional expandable sections on the product page."
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text", required: false }
+                  - label: "Bullet points"
+                    name: "list"
+                    widget: "list"
+                    required: false
+                    field: { label: "Point", name: "point", widget: "string" }
+              - label: "Artisan"
+                name: "artisan"
+                widget: "object"
+                required: false
+                collapsed: true
+                hint: "Optional 'meet the maker' section."
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Tifinagh tag", name: "tf", widget: "string", required: false }
+                  - { label: "Region", name: "region", widget: "string", required: false }
+                  - { label: "Photo", name: "image", widget: "image", required: false }
+                  - { label: "Bio paragraph 1", name: "bio1", widget: "text", required: false }
+                  - { label: "Bio paragraph 2", name: "bio2", widget: "text", required: false }
+                  - label: "Stats"
+                    name: "stats"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Number", name: "n", widget: "string" }
+                      - { label: "Label", name: "label", widget: "string" }

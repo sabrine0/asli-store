@@ -1,0 +1,273 @@
+{
+  "products": [
+    {
+      "id": "atlas-leather-pouf",
+      "name": "Atlas Leather Pouf",
+      "region": "Marrakech",
+      "price": 89,
+      "category": "Leather & Stitching",
+      "catTf": "ⴰⵍⵎ",
+      "badge": "Bestseller",
+      "kw": "moroccan,leather,pouf,ottoman",
+      "lock": 11,
+      "priceNote": "unstuffed · ships flat",
+      "blurb": "Hand-stitched sheep leather, henna-dyed in small batches. Ships flat — you fill it at home.",
+      "description": "Hand-stitched in a small workshop in the Marrakech medina by master leather artisan <strong>Mohammed Tazi</strong>. Naturally tanned sheep leather, henna-dyed in small batches. Ships flat — you fill it with old clothes, blankets, or polyester stuffing (about 12–15 kg).",
+      "colors": [
+        {
+          "name": "Saharan Sand",
+          "css": "linear-gradient(135deg, #D4A574, #B5824A)"
+        },
+        {
+          "name": "Atlas Charcoal",
+          "css": "linear-gradient(135deg, #3A2818, #1A0F08)"
+        },
+        {
+          "name": "Marrakech Terracotta",
+          "css": "linear-gradient(135deg, #C44E2C, #7E2310)"
+        },
+        {
+          "name": "Saffron Gold",
+          "css": "linear-gradient(135deg, #D9A12D, #8A6422)"
+        }
+      ],
+      "sizes": [
+        "Small · 40cm",
+        "Standard · 50cm",
+        "Large · 60cm"
+      ],
+      "defaultSize": 1,
+      "details": [
+        {
+          "title": "Materials & care",
+          "list": [
+            "100% natural sheep leather, tanned without chromium",
+            "Henna and indigo natural dyes — colors may vary slightly",
+            "Hand-stitched with waxed cotton thread",
+            "Wipe clean with a damp cloth · do not soak",
+            "Apply natural leather conditioner every 6 months"
+          ]
+        },
+        {
+          "title": "How to stuff your pouf",
+          "text": "Your pouf ships unstuffed to keep shipping affordable. Fill it through the bottom zipper with old t-shirts, towels, blankets, or about 12–15 kg of polyester filling. It takes about 15 minutes — fill firmly so it holds its shape."
+        },
+        {
+          "title": "The artisan’s story",
+          "text": "Mohammed Tazi has worked leather in the Marrakech medina for 27 years. His workshop near the Bahia Palace produces around 8 poufs per week, each entirely by hand. We pay him 3× the local market rate and source his leather from a small tannery in Fes."
+        }
+      ],
+      "artisan": {
+        "name": "Mohammed Tazi",
+        "tf": "ⴰⵎⵙⵏⴰⵍ",
+        "region": "Marrakech",
+        "kw": "moroccan,leather,artisan,worker",
+        "lock": 199,
+        "bio1": "Mohammed’s small workshop sits in a forgotten alley behind the Bahia Palace. He works alone, six days a week, producing around eight poufs and a handful of bags. We met him in 2024 and he became our first leather partner.",
+        "bio2": "Every piece you order is made specifically for you — no warehouse, no overstock. Your pouf will leave his hands within 5–7 days of your order.",
+        "stats": [
+          {
+            "n": "27",
+            "label": "Years of craft"
+          },
+          {
+            "n": "3×",
+            "label": "Local market wage"
+          },
+          {
+            "n": "8",
+            "label": "Pieces per week"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pierced-brass-lantern",
+      "name": "Pierced Brass Lantern",
+      "region": "Fes",
+      "price": 74,
+      "category": "Home & Decor",
+      "catTf": "ⵜⴰⴷⴷⴰⵔⵜ",
+      "badge": "",
+      "kw": "moroccan,brass,lantern",
+      "lock": 22,
+      "priceNote": "hand-pierced brass",
+      "blurb": "Hand-pierced in the Fes medina, casting filigree shadows across the room when lit.",
+      "description": "Hand-pierced brass lantern from the metalworkers of the Fes medina, using techniques unchanged since the Marinid era. Each one throws intricate filigree shadows across walls and ceiling when lit. Fits a standard tea light or small LED candle."
+    },
+    {
+      "id": "handmade-babouches",
+      "name": "Handmade Babouches",
+      "region": "Tangier",
+      "price": 42,
+      "category": "Leather & Stitching",
+      "catTf": "ⴰⵍⵎ",
+      "badge": "New",
+      "kw": "babouches,moroccan,slippers",
+      "lock": 33,
+      "priceNote": "unisex · true to size",
+      "blurb": "Soft hand-stitched leather slippers, dyed with saffron and pomegranate.",
+      "description": "Traditional Moroccan babouches, hand-stitched from supple goat leather and dyed with saffron and pomegranate skin. Worn indoors and out for centuries across the Maghreb. Unisex sizing — they soften and mould to your foot within days.",
+      "sizes": [
+        "EU 37",
+        "EU 38",
+        "EU 39",
+        "EU 40",
+        "EU 41",
+        "EU 42",
+        "EU 43",
+        "EU 44"
+      ],
+      "defaultSize": 3
+    },
+    {
+      "id": "glazed-cooking-tagine",
+      "name": "Glazed Cooking Tagine",
+      "region": "Safi",
+      "price": 58,
+      "category": "Home & Decor",
+      "catTf": "ⵜⴰⴷⴷⴰⵔⵜ",
+      "badge": "",
+      "kw": "tagine,moroccan,ceramic",
+      "lock": 44,
+      "priceNote": "oven & flame safe",
+      "blurb": "A real cooking tagine from Safi, Morocco’s pottery capital — not a decorative one.",
+      "description": "A true cooking tagine — not a decorative piece — thrown and glazed by potters in Safi, Morocco’s ceramic capital. The conical lid circulates steam to slow-cook meat and vegetables with almost no water. Season it before first use; safe on a diffuser over flame or in the oven."
+    },
+    {
+      "id": "woven-souk-basket",
+      "name": "Woven Souk Basket",
+      "region": "Salé",
+      "price": 36,
+      "category": "Home & Decor",
+      "catTf": "ⵜⴰⴷⴷⴰⵔⵜ",
+      "badge": "",
+      "kw": "moroccan,basket,straw,bag",
+      "lock": 55,
+      "priceNote": "palm leaf · leather handles",
+      "blurb": "Hand-woven palm-leaf basket with stitched leather handles. Market bag or home storage.",
+      "description": "Hand-woven from doum palm leaf by weavers in Salé, finished with hand-stitched leather handles. Equally at home as a market bag, a beach tote, or storage for blankets and toys. Each one is unique in weave and tone."
+    },
+    {
+      "id": "beni-ourain-rug",
+      "name": "Beni Ourain Berber Rug",
+      "region": "Atlas Mountains",
+      "price": 640,
+      "category": "Rugs",
+      "catTf": "ⵜⴰⵣⵔⴱⵉⵜ",
+      "badge": "Limited",
+      "kw": "beni,ourain,rug,berber",
+      "lock": 66,
+      "priceNote": "one of a kind · ~2 × 3 m",
+      "blurb": "Undyed wool, hand-knotted over 30–90 days by women of the Aït Bouguemez valley.",
+      "description": "A genuine Beni Ourain rug, hand-knotted from undyed Atlas sheep wool by women of the Aït Bouguemez valley. The diamond and line motifs are personal — woven from memory, never copied. Each rug takes between 30 and 90 days. No two are alike, and once one is gone it cannot be remade.",
+      "artisan": {
+        "name": "Fatima Z.",
+        "tf": "ⴼⴰⵟⵉⵎⴰ",
+        "region": "Aït Bouguemez",
+        "kw": "moroccan,berber,woman,weaver",
+        "lock": 99,
+        "bio1": "Fatima has been weaving Beni Ourain rugs since she was seven, taught by her grandmother high in the Atlas. Each rug takes between 30 and 90 days — a single mistake means starting over.",
+        "bio2": "She works within a women’s cooperative that we pay directly, with no middlemen between her loom and your floor.",
+        "stats": [
+          {
+            "n": "32",
+            "label": "Years weaving"
+          },
+          {
+            "n": "30–90",
+            "label": "Days per rug"
+          },
+          {
+            "n": "100%",
+            "label": "Undyed wool"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pure-argan-oil",
+      "name": "Pure Argan Oil",
+      "region": "Essaouira",
+      "price": 28,
+      "category": "Beauty & Rituals",
+      "catTf": "ⵜⴰⵣⴻⵍⵍⵉⵜ",
+      "badge": "",
+      "kw": "argan,oil,bottle,cosmetic",
+      "lock": 77,
+      "priceNote": "50ml · cold-pressed",
+      "blurb": "Cold-pressed cosmetic argan oil from a women’s cooperative near Essaouira.",
+      "description": "Cold-pressed cosmetic-grade argan oil from a women’s cooperative near Essaouira, where the argan tree grows nowhere else on earth. Unroasted and unscented, for skin, hair and nails. 50 ml amber glass bottle with dropper."
+    },
+    {
+      "id": "embroidered-cushion",
+      "name": "Hand-Embroidered Cushion",
+      "region": "Chefchaouen",
+      "price": 48,
+      "category": "Home & Decor",
+      "catTf": "ⵜⴰⴷⴷⴰⵔⵜ",
+      "badge": "",
+      "kw": "moroccan,embroidered,cushion,pillow",
+      "lock": 88,
+      "priceNote": "cover only · 45 × 45 cm",
+      "blurb": "Cotton cushion cover with fassi-style hand embroidery from the blue city.",
+      "description": "A cotton cushion cover hand-embroidered in the fassi tradition by artisans in blue-walled Chefchaouen. Hidden zip, 45 × 45 cm, cover only. Each takes two to three days of needlework."
+    },
+    {
+      "id": "hand-stitched-tote",
+      "name": "Hand-Stitched Leather Tote",
+      "region": "Marrakech",
+      "price": 95,
+      "category": "Leather & Stitching",
+      "catTf": "ⴰⵍⵎ",
+      "badge": "",
+      "kw": "moroccan,leather,bag,tote",
+      "lock": 202,
+      "priceNote": "full-grain · unlined",
+      "blurb": "Roomy full-grain leather tote, saddle-stitched by hand in the medina.",
+      "description": "A roomy, unlined full-grain leather tote, saddle-stitched entirely by hand in the Marrakech medina. It starts firm and develops a deep patina with use. Fits a 13\" laptop, a market haul, or a weekend away."
+    },
+    {
+      "id": "damask-rose-water",
+      "name": "Damask Rose Water",
+      "region": "Kelaat M’Gouna",
+      "price": 22,
+      "category": "Beauty & Rituals",
+      "catTf": "ⵜⴰⵣⴻⵍⵍⵉⵜ",
+      "badge": "",
+      "kw": "rose,water,bottle,cosmetic",
+      "lock": 205,
+      "priceNote": "100ml · steam-distilled",
+      "blurb": "Steam-distilled from Damask roses in the Valley of Roses. A toner and a ritual.",
+      "description": "Steam-distilled from Damask roses harvested at dawn in the Valley of Roses (Kelaat M’Gouna). A gentle facial toner and a centuries-old ritual mist. Nothing added — just rose and water. 100 ml glass bottle."
+    },
+    {
+      "id": "beldi-black-soap",
+      "name": "Beldi Black Soap",
+      "region": "Fes",
+      "price": 18,
+      "category": "Beauty & Rituals",
+      "catTf": "ⵜⴰⵣⴻⵍⵍⵉⵜ",
+      "badge": "",
+      "kw": "soap,natural,spa,olive",
+      "lock": 206,
+      "priceNote": "200g · with kessa glove",
+      "blurb": "The olive-based hammam soap, traditionally paired with a kessa exfoliating glove.",
+      "description": "Beldi black soap — the soft, olive-based paste at the heart of the Moroccan hammam ritual. Massage on, leave a few minutes, then scrub with the included kessa glove. Leaves skin remarkably smooth. 200 g jar."
+    },
+    {
+      "id": "azilal-rug",
+      "name": "Azilal Berber Rug",
+      "region": "Azilal",
+      "price": 520,
+      "category": "Rugs",
+      "catTf": "ⵜⴰⵣⵔⴱⵉⵜ",
+      "badge": "",
+      "kw": "azilal,berber,rug,colorful",
+      "lock": 207,
+      "priceNote": "one of a kind · ~1.5 × 2.5 m",
+      "blurb": "A wilder cousin of the Beni Ourain — abstract, colourful, full of story.",
+      "description": "Azilal rugs are the wilder, more colourful cousins of the Beni Ourain — woven on a natural wool ground with bursts of dyed thread arranged from imagination, not pattern. Each is a one-of-a-kind diary of its weaver. Roughly 1.5 × 2.5 m."
+    }
+  ]
+}

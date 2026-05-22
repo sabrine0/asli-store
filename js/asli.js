@@ -17,8 +17,9 @@
   /* ---------- product catalog ----------
      Each product can carry optional rich fields (description, colors,
      sizes, details, artisan) used by the dynamic product page. Cards,
-     cart, drawer and shop all read from this single source.            */
-  ASLI.products = [
+     cart, drawer and shop all read from this single source. On the live site
+     this is overridden by data/products.json (editable in the CMS); see below. */
+  var FALLBACK_PRODUCTS = [
     {
       id: 'atlas-leather-pouf',
       name: 'Atlas Leather Pouf',
@@ -145,6 +146,37 @@
       description: 'Azilal rugs are the wilder, more colourful cousins of the Beni Ourain — woven on a natural wool ground with bursts of dyed thread arranged from imagination, not pattern. Each is a one-of-a-kind diary of its weaver. Roughly 1.5 × 2.5 m.'
     }
   ];
+
+  /* Start with the built-in list so the site works instantly (and offline / from
+     disk), then load the CMS-editable catalogue from data/products.json. */
+  ASLI.products = FALLBACK_PRODUCTS;
+
+  var _ready = false, _readyCbs = [];
+  function _flushReady() {
+    if (_ready) return;
+    _ready = true;
+    _kwMap = null; // rebuild the keyword map against whatever products we ended up with
+    while (_readyCbs.length) { try { _readyCbs.shift()(); } catch (e) {} }
+    try { document.dispatchEvent(new CustomEvent('asli:products', { detail: { products: ASLI.products } })); } catch (e) {}
+  }
+  // Run cb once the catalogue is loaded (or immediately if it already is).
+  ASLI.ready = function (cb) {
+    if (typeof cb !== 'function') return;
+    if (_ready) cb(); else _readyCbs.push(cb);
+  };
+  function loadProducts() {
+    if (typeof fetch !== 'function') { _flushReady(); return; }
+    var safety = setTimeout(_flushReady, 4000); // never hang the page
+    fetch('data/products.json', { cache: 'no-cache' })
+      .then(function (r) { return r && r.ok ? r.json() : null; })
+      .then(function (data) {
+        var arr = data && Array.isArray(data.products) ? data.products : (Array.isArray(data) ? data : null);
+        if (arr && arr.length) ASLI.products = arr;
+      })
+      .catch(function () {})
+      .then(function () { clearTimeout(safety); _flushReady(); });
+  }
+  loadProducts();
 
   /* ---------- helpers ---------- */
   ASLI.IMG_DIR = 'images/';
@@ -380,7 +412,7 @@
     body.innerHTML = lines.map(function (l) {
       var p = l.product;
       return '<div class="asli-dline" data-line data-id="' + p.id + '" data-variant="' + escAttr(l.variant) + '">' +
-        '<div class="asli-dline-img"><img src="' + ASLI.imgUrl(p.kw, p.lock, 160, 200) + '" alt="' + escAttr(p.name) + '"></div>' +
+        '<div class="asli-dline-img"><img src="' + ASLI.productImg(p) + '" alt="' + escAttr(p.name) + '"></div>' +
         '<div><div class="asli-dline-name"><a href="product-page.html?id=' + p.id + '">' + p.name + '</a></div>' +
         (l.variant ? '<div class="asli-dline-var">' + l.variant + '</div>' : '<div class="asli-dline-var">' + p.region + '</div>') +
         '<div class="asli-dline-q"><button data-asli-dec aria-label="Decrease">−</button><span>' + l.qty + '</span><button data-asli-inc aria-label="Increase">+</button></div>' +
