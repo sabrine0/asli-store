@@ -1,0 +1,144 @@
+# Pages CMS configuration — free admin you log into with GitHub at https://app.pagescms.org
+# Edits here are committed to this repo and go live on the site automatically.
+
+media:
+  input: images
+  output: /images
+
+content:
+  - name: shop
+    label: Products
+    type: file
+    path: data/products.json
+    format: json
+    fields:
+      - name: products
+        label: Products
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: id
+            label: "ID — used for the link & photo name (lowercase + dashes; don't change once live)"
+            type: string
+          - name: price
+            label: Price (USD)
+            type: number
+          - name: region
+            label: Region
+            type: string
+          - name: category
+            label: Category
+            type: select
+            options:
+              values:
+                - Leather & Stitching
+                - Rugs
+                - Home & Decor
+                - Beauty & Rituals
+          - name: image
+            label: Photo
+            type: image
+            required: false
+          - name: badge
+            label: "Badge (e.g. Bestseller, New, Limited — leave empty for none)"
+            type: string
+            required: false
+          - name: blurb
+            label: Short blurb (shown on cards)
+            type: text
+            required: false
+          - name: description
+            label: Full description (product page)
+            type: text
+            required: false
+          - name: priceNote
+            label: "Price note (e.g. 50ml · cold-pressed)"
+            type: string
+            required: false
+          - name: catTf
+            label: Tifinagh category tag (optional)
+            type: string
+            required: false
+          - name: sizes
+            label: Sizes (optional)
+            type: string
+            list: true
+            required: false
+          - name: defaultSize
+            label: Default size (0 = first)
+            type: number
+            required: false
+          - name: colors
+            label: Colours (optional)
+            type: object
+            list: true
+            required: false
+            fields:
+              - name: name
+                label: Colour name
+                type: string
+              - name: css
+                label: "Swatch CSS (colour or gradient)"
+                type: string
+          - name: details
+            label: Details / accordion (optional)
+            type: object
+            list: true
+            required: false
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: text
+                required: false
+              - name: list
+                label: Bullet points
+                type: string
+                list: true
+                required: false
+          - name: artisan
+            label: Artisan (optional)
+            type: object
+            required: false
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: false
+              - name: tf
+                label: Tifinagh tag
+                type: string
+                required: false
+              - name: region
+                label: Region
+                type: string
+                required: false
+              - name: image
+                label: Photo
+                type: image
+                required: false
+              - name: bio1
+                label: Bio paragraph 1
+                type: text
+                required: false
+              - name: bio2
+                label: Bio paragraph 2
+                type: text
+                required: false
+              - name: stats
+                label: Stats
+                type: object
+                list: true
+                required: false
+                fields:
+                  - name: n
+                    label: Number
+                    type: string
+                  - name: label
+                    label: Label
+                    type: string

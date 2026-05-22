@@ -443,7 +443,7 @@ ASLI.ready(function () {
   if (p.artisan) {
     var a = p.artisan;
     aEl.innerHTML =
-      '<div class="artisan-inline-photo"><img src="' + (a.image || ASLI.fallbackImg(a.name)) + '" alt="' + ASLI.escAttr(a.name) + '"></div>' +
+      '<div class="artisan-inline-photo"><img src="' + (a.image ? ASLI.assetUrl(a.image) : ASLI.fallbackImg(a.name)) + '" alt="' + ASLI.escAttr(a.name) + '"></div>' +
       '<div class="artisan-inline-content">' +
         '<div class="info-eyebrow"><span>Made by</span> <span class="tf">·  ' + (a.tf || 'ⴰⵎⵙⵏⴰⵍ') + '</span></div>' +
         '<h2>' + a.name + ' —<br><em>' + (a.stats && a.stats[0] ? a.stats[0].n + ' ' + a.stats[0].label.toLowerCase() : 'master of the craft') + '.</em></h2>' +

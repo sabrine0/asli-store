@@ -204,8 +204,15 @@
   var _kwMap = null;
   function kwMap() { if (!_kwMap) { _kwMap = {}; ASLI.products.forEach(function (p) { _kwMap[p.kw] = p; }); } return _kwMap; }
 
-  // Real product photo: drop a file at images/<id>.jpg (or set product.image) and it shows automatically.
-  ASLI.productImg = function (p) { return p ? (p.image || ASLI.IMG_DIR + p.id + '.jpg') : ASLI.fallbackImg(); };
+  // Keep asset paths relative (a CMS may store "/images/x.jpg"; a leading slash breaks
+  // on GitHub Pages project URLs like /asli-store/). Strip it so it resolves correctly.
+  ASLI.assetUrl = function (path) { return (path && path.charAt(0) === '/') ? path.slice(1) : path; };
+
+  // Real product photo: drop a file at images/<id>.jpg (or set product.image via the CMS) and it shows automatically.
+  ASLI.productImg = function (p) {
+    if (!p) return ASLI.fallbackImg();
+    return p.image ? ASLI.assetUrl(p.image) : ASLI.IMG_DIR + p.id + '.jpg';
+  };
 
   // Back-compat shim — existing pages call imgUrl(kw, lock, w, h). Resolve to the local
   // product photo when keywords match a product, otherwise a branded placeholder.

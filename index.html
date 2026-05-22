@@ -1133,7 +1133,6 @@ footer::before {
 .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -1598,17 +1597,6 @@ document.querySelectorAll('.section-header, .product, .story-content, .category,
   el.classList.add('fade-up');
 });
 if (window.ASLI && ASLI.observeReveal) ASLI.observeReveal();
-</script>
-
-<script>
-  // After accepting a Netlify Identity invite (or logging in), open the admin panel.
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on('init', function (user) {
-      if (!user) {
-        window.netlifyIdentity.on('login', function () { document.location.href = '/admin/'; });
-      }
-    });
-  }
 </script>
 
 </body>
