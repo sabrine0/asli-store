@@ -1597,6 +1597,15 @@ document.querySelectorAll('.section-header, .product, .story-content, .category,
   el.classList.add('fade-up');
 });
 if (window.ASLI && ASLI.observeReveal) ASLI.observeReveal();
+
+// When the CMS catalogue loads, refresh the featured product photos.
+document.addEventListener('asli:products', function () {
+  document.querySelectorAll('.product[data-id]').forEach(function (card) {
+    var prod = ASLI.getProduct(card.dataset.id);
+    var ph = card.querySelector('.product-photo');
+    if (prod && ph) ph.src = ASLI.productImg(prod);
+  });
+});
 </script>
 
 </body>
