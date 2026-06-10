@@ -69,6 +69,7 @@
         "name": "Mohammed Tazi",
         "tf": "ⴰⵎⵙⵏⴰⵍ",
         "region": "Marrakech",
+        "image": "/images/artisan-leather.jpg",
         "bio1": "Mohammed’s small workshop sits in a forgotten alley behind the Bahia Palace. He works alone, six days a week, producing around eight poufs and a handful of bags. We met him in 2024 and he became our first leather partner.",
         "bio2": "Every piece you order is made specifically for you — no warehouse, no overstock. Your pouf will leave his hands within 5–7 days of your order.",
         "stats": [
@@ -158,6 +159,7 @@
         "name": "Fatima Z.",
         "tf": "ⴼⴰⵟⵉⵎⴰ",
         "region": "Aït Bouguemez",
+        "image": "/images/artisan-weaver.jpg",
         "bio1": "Fatima has been weaving Beni Ourain rugs since she was seven, taught by her grandmother high in the Atlas. Each rug takes between 30 and 90 days — a single mistake means starting over.",
         "bio2": "She works within a women’s cooperative that we pay directly, with no middlemen between her loom and your floor.",
         "stats": [

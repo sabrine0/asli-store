@@ -23,6 +23,21 @@ The **Atlas Leather Pouf** photos are the shop's own (not listed here).
 | azilal-rug | 16:9clue | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Berber_carpet_(5338347185).jpg) |
 | handira-wedding-blanket | Amazigh Man | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Berber_carpet_from_Morocco.jpg) |
 
+## Region & artisan photos (homepage, heritage, product pages)
+
+| File | Author | License | Source |
+|---|---|---|---|
+| region-atlas.jpg | (Commons) | CC BY-SA 4.0 | [Djebel Ayachi, Eastern High Atlas](https://commons.wikimedia.org/wiki/File:Djebel_Ayachi,_Eastern_High_Atlas,_Morocco.jpg) |
+| region-rif.jpg | (Commons) | CC BY-SA 4.0 | [Chaouen blue city](https://commons.wikimedia.org/wiki/File:2018_01_(Blue)_-_Chaouen.jpg) |
+| region-souss.jpg | Elena Tatiana Chis | CC BY-SA 4.0 | [Argan trees Morocco](https://commons.wikimedia.org/wiki/File:Argan_trees_Morocco.jpg) |
+| region-sahara.jpg | Rosino | CC BY-SA 2.0 | [Morocco dunes](https://commons.wikimedia.org/wiki/File:Morocco_Africa_Flickr_Rosino_December_2005_84514010_edited_by_Buchling.jpg) |
+| artisan-weaver.jpg | Angeline A. van Achterberg | CC BY-SA 4.0 | [Trois tisseuses, Fès](https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_van_Achterberg_Collection_-_07_-_013_-_Trois_tisseuses_-_F%C3%A8s,_Maroc_-_D%C3%A9but_des_ann%C3%A9es_1990.jpg) |
+| artisan-leather.jpg | (Commons) | CC BY-SA 3.0 | [Leather tanning, Fes](https://commons.wikimedia.org/wiki/File:Leather_tanning,_Fes.jpg) |
+| artisan-generic.jpg | (Commons) | CC BY-SA 2.0 | [A craftsman at work in Fes](https://commons.wikimedia.org/wiki/File:A_craftsman_at_work_in_Fes_(5365137988).jpg) |
+
+> Artisan portraits are generic placeholders — replace with real photos of Mohammed Tazi,
+> Fatima Z., etc. (set `artisan.image` in `data/products.json` or via the CMS).
+
 **License links:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ·
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ·
 [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) ·
