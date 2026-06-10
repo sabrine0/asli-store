@@ -6,7 +6,16 @@
       "price": 89,
       "region": "Marrakech",
       "category": "Leather & Stitching",
-      "image": "/images/IMG_4025-scaled.webp",
+      "images": [
+        "/images/Handcrafted-tan-leather-pouf-with-white-embroidered-snowflake-pattern-top-view-1-600x600.webp",
+        "/images/IMG_4025-scaled.webp",
+        "/images/Handmade-leather-pouf-dark-brown-with-intricate-white-embroidered-star-design-and-geometric-panel-stitching-600x600.webp",
+        "/images/499715-47cd8c9c885657.webp",
+        "/images/499698-47cd8c9c885455.webp",
+        "/images/499703-47cd8c9c885456.webp",
+        "/images/1-43-copy.webp",
+        "/images/JabasBkWovenLthrPoufSHS25.webp"
+      ],
       "badge": "Bestseller",
       "blurb": "Hand-stitched sheep leather, henna-dyed in small batches. Ships flat — you fill it at home.",
       "description": "Hand-stitched in a small workshop in the Marrakech medina by master leather artisan <strong>Mohammed Tazi</strong>. Naturally tanned sheep leather, henna-dyed in small batches. Ships flat — you fill it with old clothes, blankets, or polyester stuffing (about 12–15 kg).",
