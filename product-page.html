@@ -11,13 +11,23 @@
 <style>
 /* ---- product-page specific (base styles live in css/asli.css) ---- */
 .product-page { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; padding: 60px 56px 100px; border-bottom: 1px solid var(--line); align-items: start; }
-.gallery { display: grid; grid-template-columns: 90px 1fr; gap: 20px; position: sticky; top: 110px; }
-.thumbnails { display: flex; flex-direction: column; gap: 14px; }
-.thumb { width: 90px; height: 110px; background: var(--sand); border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s; }
+.gallery { display: grid; grid-template-columns: 92px 1fr; gap: 20px; position: sticky; top: 110px; }
+.gallery.single { grid-template-columns: 1fr; }
+.gallery.single .thumbnails { display: none; }
+.thumbnails { display: flex; flex-direction: column; gap: 14px; max-height: 560px; overflow-y: auto; padding-right: 2px; }
+.thumb { flex: 0 0 auto; width: 92px; height: 112px; background: var(--sand); border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s; padding: 0; }
 .thumb.active { border-color: var(--terracotta); }
-.thumb img { width: 100%; height: 100%; object-fit: cover; }
-.gallery-main { aspect-ratio: 4/5; background: linear-gradient(155deg, #C99240 0%, #8B4A24 100%); border-radius: 50% 50% 8px 8px / 22% 22% 8px 8px; position: relative; overflow: hidden; }
-.gallery-main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-main { aspect-ratio: 4/5; background: linear-gradient(155deg, #C99240 0%, #8B4A24 100%); border-radius: 50% 50% 8px 8px / 22% 22% 8px 8px; position: relative; overflow: hidden; touch-action: pan-y; }
+/* contain so any product shape — wide rug, tall bottle, square pouf — shows in full, never cropped */
+.gallery-main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(247,239,223,0.92); color: var(--ink); font-size: 1.7rem; line-height: 1; cursor: pointer; z-index: 4; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(26,15,8,0.2); transition: background 0.3s, color 0.3s; font-family: 'Fraunces', serif; }
+.gallery-nav:hover { background: var(--cream); color: var(--terracotta); }
+.gallery-nav.prev { left: 14px; }
+.gallery-nav.next { right: 14px; }
+.gallery-nav[hidden] { display: none; }
+.gallery-counter { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(26,15,8,0.68); color: var(--cream); font-size: 0.72rem; letter-spacing: 0.12em; padding: 5px 13px; border-radius: 999px; z-index: 4; }
+.gallery-counter[hidden] { display: none; }
 .gallery-main::after { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F7EFDF' stroke-width='0.5' opacity='0.12'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E"); }
 .gallery-badge { position: absolute; top: 24px; left: 24px; background: var(--cream); color: var(--terracotta); border: 1px solid var(--terracotta); padding: 6px 14px; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; z-index: 3; }
 .info-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
@@ -101,7 +111,7 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
 @media (max-width: 1024px) {
   .product-page { grid-template-columns: 1fr; gap: 40px; }
   .gallery { position: static; grid-template-columns: 1fr; }
-  .thumbnails { flex-direction: row; order: 2; }
+  .thumbnails { flex-direction: row; order: 2; max-height: none; overflow-x: auto; overflow-y: visible; padding-bottom: 4px; }
   .thumb { width: 70px; height: 86px; }
   .artisan-inline { grid-template-columns: 1fr; gap: 40px; }
   .reviews-grid { grid-template-columns: 1fr; }
@@ -164,11 +174,14 @@ h1.product-title em { font-style: italic; color: var(--terracotta); }
 
 <!-- PRODUCT MAIN (filled by JS from ?id=) -->
 <section class="product-page">
-  <div class="gallery">
+  <div class="gallery" id="gallery">
     <div class="thumbnails" id="thumbnails"></div>
-    <div class="gallery-main">
+    <div class="gallery-main" id="galleryMainWrap">
       <img id="galleryMain" src="" alt="">
       <span class="gallery-badge" id="galleryBadge" style="display:none;"></span>
+      <button type="button" class="gallery-nav prev" id="galleryPrev" aria-label="Previous photo" hidden>‹</button>
+      <button type="button" class="gallery-nav next" id="galleryNext" aria-label="Next photo" hidden>›</button>
+      <div class="gallery-counter" id="galleryCounter" hidden></div>
     </div>
   </div>
 
@@ -343,23 +356,58 @@ ASLI.ready(function () {
   document.getElementById('priceNote').textContent = p.priceNote || 'handmade to order';
   document.getElementById('description').innerHTML = p.description || p.blurb || '';
 
-  // gallery
+  // gallery — supports one photo or many (product.images[])
+  var imgs = ASLI.productImages(p);
+  var multi = imgs.length > 1;
+  var gi = 0;
   var main = document.getElementById('galleryMain');
-  main.src = ASLI.productImg(p);
-  main.alt = p.name;
+  var thumbsEl = document.getElementById('thumbnails');
+  var prevBtn = document.getElementById('galleryPrev');
+  var nextBtn = document.getElementById('galleryNext');
+  var counter = document.getElementById('galleryCounter');
+
   if (p.badge) { var b = document.getElementById('galleryBadge'); b.textContent = p.badge; b.style.display = ''; }
-  var views = [0];
-  document.getElementById('thumbnails').innerHTML = views.map(function (lk, i) {
-    return '<div class="thumb' + (i === 0 ? ' active' : '') + '" data-full="' + ASLI.productImg(p) + '">' +
-      '<img src="' + ASLI.productImg(p) + '" alt="' + ASLI.escAttr(p.name) + ' view ' + (i + 1) + '"></div>';
+
+  thumbsEl.innerHTML = imgs.map(function (src, i) {
+    return '<button type="button" class="thumb' + (i === 0 ? ' active' : '') + '" data-i="' + i + '">' +
+      '<img src="' + src + '" alt="' + ASLI.escAttr(p.name) + ' photo ' + (i + 1) + '" loading="lazy"></button>';
   }).join('');
-  document.querySelectorAll('.thumb').forEach(function (t) {
-    t.addEventListener('click', function () {
-      document.querySelectorAll('.thumb').forEach(function (x) { x.classList.remove('active'); });
-      t.classList.add('active');
-      main.src = t.getAttribute('data-full');
-    });
+
+  function showImg(i) {
+    gi = (i + imgs.length) % imgs.length;
+    main.src = imgs[gi];
+    main.alt = p.name + (multi ? ' — photo ' + (gi + 1) + ' of ' + imgs.length : '');
+    thumbsEl.querySelectorAll('.thumb').forEach(function (t, ti) { t.classList.toggle('active', ti === gi); });
+    if (counter) counter.textContent = (gi + 1) + ' / ' + imgs.length;
+  }
+
+  document.getElementById('gallery').classList.toggle('single', !multi);
+  prevBtn.hidden = nextBtn.hidden = counter.hidden = !multi;
+
+  thumbsEl.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-i]'); if (!t) return;
+    showImg(parseInt(t.dataset.i, 10));
   });
+  prevBtn.addEventListener('click', function () { showImg(gi - 1); });
+  nextBtn.addEventListener('click', function () { showImg(gi + 1); });
+
+  if (multi) {
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') showImg(gi - 1);
+      else if (e.key === 'ArrowRight') showImg(gi + 1);
+    });
+    // swipe on touch screens
+    var tx = null, wrap = document.getElementById('galleryMainWrap');
+    wrap.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+    wrap.addEventListener('touchend', function (e) {
+      if (tx === null) return;
+      var dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) showImg(gi + (dx < 0 ? 1 : -1));
+      tx = null;
+    });
+  }
+
+  showImg(0);
 
   // selections
   var sel = { color: null, size: null };

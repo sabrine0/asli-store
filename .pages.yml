@@ -38,8 +38,13 @@ content:
                 - Rugs
                 - Home & Decor
                 - Beauty & Rituals
+          - name: images
+            label: "Photos — add several; the first is the main one (shown on cards & cart)"
+            type: image
+            list: true
+            required: false
           - name: image
-            label: Photo
+            label: "Photo (single — optional; only used if Photos above is empty)"
             type: image
             required: false
           - name: badge

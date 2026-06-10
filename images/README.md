@@ -34,8 +34,33 @@ background, file size under ~400 KB each (compress with squoosh.app or tinypng.c
 | Beldi Black Soap | `beldi-black-soap.jpg` |
 | Azilal Berber Rug | `azilal-rug.jpg` |
 
+## Multiple photos per product ✦ NEW
+
+A product can now show **several photos** — the product page turns into a gallery with
+thumbnails, ‹ › arrows, a counter, and swipe on phones. The first photo is the "main" one
+shown on the shop cards and in the cart.
+
+**Easiest — in the CMS (app.pagescms.org):** each product now has a **"Photos"** field.
+Click it, upload as many photos as you like, drag to reorder. Done.
+
+**Or by hand — in `data/products.json`:** add an `images` array to the product:
+```json
+{
+  "id": "atlas-leather-pouf",
+  "name": "Atlas Leather Pouf",
+  "images": [
+    "images/atlas-leather-pouf.jpg",
+    "images/atlas-leather-pouf-2.jpg",
+    "images/atlas-leather-pouf-3.jpg"
+  ],
+  ...
+}
+```
+then drop those files in this folder and push. Any filenames work — just match the paths.
+A product with only one photo (or none yet) still works exactly as before.
+
 ## Notes
-- Filenames are **case-sensitive** on the live server — use lowercase, exactly as above.
-- The product page reuses the same photo for its gallery thumbnails for now. If you want
-  multiple angles per product later, tell me and I'll wire up `-1.jpg`, `-2.jpg`, etc.
+- Filenames are **case-sensitive** on the live server — use lowercase.
+- Photos of **any shape** now display in full (the gallery fits wide rugs, tall bottles and
+  square poufs without cropping), and the whole site adapts from phone to wide desktop.
 - The product id ↔ filename mapping lives in `js/asli.js` (the `id` field of each product).

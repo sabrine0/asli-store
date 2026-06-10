@@ -190,7 +190,8 @@ nav {
 .breadcrumbs .sep { margin: 0 12px; color: var(--terracotta); }
 
 /* === PRODUCT GRID / CARD === */
-.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px 28px; }
+/* Fluid grid: auto-fits as many ~230px columns as the screen allows — phone to wide desktop, no breakpoints needed */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 44px 28px; }
 .product { cursor: pointer; position: relative; text-decoration: none; color: inherit; display: block; }
 .product-img {
   aspect-ratio: 4/5.2; position: relative; overflow: hidden; margin-bottom: 20px;
@@ -433,7 +434,6 @@ footer::before {
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
-  .product-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
   .cart-page { grid-template-columns: 1fr; gap: 40px; }
   .checkout-page { grid-template-columns: 1fr; gap: 40px; }
@@ -451,7 +451,7 @@ footer::before {
   .checkout-page { padding: 30px 24px 70px; }
   .contact-layout { padding: 50px 24px 70px; }
   .breadcrumbs { padding: 16px 24px; font-size: 0.72rem; }
-  .product-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 28px 16px; }
   .section-header { flex-direction: column; align-items: flex-start; }
   .newsletter { padding: 80px 24px; }
   .calligraphy-break { padding: 80px 24px; }

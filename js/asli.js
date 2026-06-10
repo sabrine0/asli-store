@@ -208,10 +208,30 @@
   // on GitHub Pages project URLs like /asli-store/). Strip it so it resolves correctly.
   ASLI.assetUrl = function (path) { return (path && path.charAt(0) === '/') ? path.slice(1) : path; };
 
-  // Real product photo: drop a file at images/<id>.jpg (or set product.image via the CMS) and it shows automatically.
+  // All photos for a product, as an array (a product can carry many). Sources, in order:
+  //   1. product.images[] — one or more files (CMS "Photos"). Each item may be a plain
+  //      path string, or an object { src | image | url, alt }.
+  //   2. product.image — a single photo (legacy / CMS "Photo").
+  //   3. images/<id>.jpg — the id-based convention (branded placeholder until a real one is added).
+  // Always returns at least one entry.
+  ASLI.productImages = function (p) {
+    if (!p) return [ASLI.fallbackImg()];
+    var out = [];
+    if (Array.isArray(p.images)) {
+      p.images.forEach(function (im) {
+        var src = typeof im === 'string' ? im : (im && (im.src || im.image || im.url));
+        if (src) out.push(ASLI.assetUrl(src));
+      });
+    }
+    if (!out.length && p.image) out.push(ASLI.assetUrl(p.image));
+    if (!out.length) out.push(ASLI.IMG_DIR + p.id + '.jpg');
+    return out;
+  };
+
+  // Primary product photo (cards, cart, drawer, related). First of productImages().
   ASLI.productImg = function (p) {
     if (!p) return ASLI.fallbackImg();
-    return p.image ? ASLI.assetUrl(p.image) : ASLI.IMG_DIR + p.id + '.jpg';
+    return ASLI.productImages(p)[0];
   };
 
   // Back-compat shim — existing pages call imgUrl(kw, lock, w, h). Resolve to the local
