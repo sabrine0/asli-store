@@ -11,6 +11,9 @@
 <style>
 /* ---- product-page specific (base styles live in css/asli.css) ---- */
 .product-page { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; padding: 60px 56px 100px; border-bottom: 1px solid var(--line); align-items: start; }
+/* the detail info column reuses the .product-info class (which is flex for product cards) — force a normal vertical block here so it doesn't crush the gallery */
+.product-page > .product-info { display: block; min-width: 0; }
+.product-page > .gallery { min-width: 0; }
 .gallery { display: grid; grid-template-columns: 92px 1fr; gap: 20px; position: sticky; top: 110px; }
 .gallery.single { grid-template-columns: 1fr; }
 .gallery.single .thumbnails { display: none; }
