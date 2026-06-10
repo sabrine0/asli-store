@@ -362,6 +362,26 @@
     '.asli-toast{background:var(--ink,#1A0F08);color:var(--cream,#F7EFDF);padding:14px 22px;font-size:.78rem;letter-spacing:.08em;font-weight:600;display:flex;align-items:center;gap:10px;box-shadow:0 10px 40px -10px rgba(0,0,0,.5);opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s;max-width:90vw;}',
     '.asli-toast.show{opacity:1;transform:translateY(0);}',
     '.asli-toast .star{color:var(--saffron,#D9A12D);}',
+    /* search overlay */
+    '.asli-search{position:fixed;inset:0;z-index:430;background:rgba(26,15,8,.55);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .3s;padding:0 16px;}',
+    '.asli-search.open{opacity:1;visibility:visible;}',
+    '.asli-search-panel{background:var(--cream,#F7EFDF);max-width:660px;margin:8vh auto 0;transform:translateY(-18px);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 30px 80px -20px rgba(26,15,8,.5);display:flex;flex-direction:column;max-height:84vh;border-radius:4px;overflow:hidden;}',
+    '.asli-search.open .asli-search-panel{transform:translateY(0);}',
+    '.asli-search-head{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line,#C9B68E);}',
+    '.asli-search-head svg{width:22px;height:22px;color:var(--terracotta,#B5391C);flex-shrink:0;}',
+    '.asli-search-input{flex:1;border:none;background:transparent;font-family:inherit;font-size:1.1rem;color:var(--ink,#1A0F08);outline:none;}',
+    '.asli-search-input::-webkit-search-cancel-button{-webkit-appearance:none;}',
+    '.asli-search-close{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink-soft,#5A4632);line-height:1;}',
+    '.asli-search-close:hover{color:var(--terracotta,#B5391C);}',
+    '.asli-search-results{overflow-y:auto;padding:6px 0;}',
+    '.asli-search-hint{padding:34px 24px;text-align:center;color:var(--ink-soft,#5A4632);font-family:"Fraunces",serif;font-style:italic;font-size:1rem;line-height:1.6;}',
+    '.asli-sr{display:flex;align-items:center;gap:14px;padding:11px 22px;text-decoration:none;color:inherit;transition:background .2s;}',
+    '.asli-sr:hover{background:var(--cream-deep,#EBDFC4);}',
+    '.asli-sr-img{width:52px;height:62px;border-radius:4px;overflow:hidden;background:var(--sand,#E0D0B0);flex-shrink:0;}',
+    '.asli-sr-img img{width:100%;height:100%;object-fit:cover;}',
+    '.asli-sr-name{font-family:"Fraunces",serif;font-weight:500;font-size:1rem;line-height:1.2;}',
+    '.asli-sr-meta{font-size:.76rem;color:var(--ink-soft,#5A4632);margin-top:2px;}',
+    '.asli-sr-price{margin-left:auto;font-family:"Fraunces",serif;font-weight:600;color:var(--terracotta,#B5391C);white-space:nowrap;}',
     /* mobile menu + toggle */
     '.nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--ink,#1A0F08);padding:4px;}',
     '.nav-toggle svg{width:26px;height:26px;}',
@@ -475,6 +495,70 @@
     }, 2400);
   };
 
+  /* ---------- product search (site-wide overlay) ---------- */
+  function searchNorm(s) {
+    s = String(s == null ? '' : s).toLowerCase();
+    return s.normalize ? s.normalize('NFD').replace(/[̀-ͯ]/g, '') : s;
+  }
+  function buildSearch() {
+    if (document.getElementById('asliSearch')) return;
+    var s = document.createElement('div');
+    s.className = 'asli-search';
+    s.id = 'asliSearch';
+    s.innerHTML =
+      '<div class="asli-search-panel" role="dialog" aria-label="Search products">' +
+        '<div class="asli-search-head">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>' +
+          '<input class="asli-search-input" id="asliSearchInput" type="search" placeholder="Search rugs, leather, argan…" autocomplete="off" aria-label="Search products">' +
+          '<button class="asli-search-close" data-search-close aria-label="Close search">×</button>' +
+        '</div>' +
+        '<div class="asli-search-results" id="asliSearchResults"></div>' +
+      '</div>';
+    document.body.appendChild(s);
+    var inp = document.getElementById('asliSearchInput');
+    inp.addEventListener('input', function () { searchRender(inp.value); });
+  }
+  function searchRender(q) {
+    var box = document.getElementById('asliSearchResults');
+    if (!box) return;
+    var nq = searchNorm(q).trim();
+    if (!nq) {
+      box.innerHTML = '<div class="asli-search-hint">Search ' + ASLI.products.length +
+        ' handmade pieces.<br>Try “rug”, “leather”, “argan”, or a city.</div>';
+      return;
+    }
+    var toks = nq.split(/\s+/);
+    var list = ASLI.products.filter(function (p) {
+      var hay = searchNorm([p.name, p.region, p.category, p.blurb, p.description, p.priceNote].join(' '));
+      return toks.every(function (t) { return hay.indexOf(t) !== -1; });
+    });
+    if (!list.length) {
+      box.innerHTML = '<div class="asli-search-hint">No pieces match “' + escAttr(q) + '”.<br>Try a craft, a region, or a material.</div>';
+      return;
+    }
+    box.innerHTML = list.slice(0, 8).map(function (p) {
+      return '<a class="asli-sr" href="product-page.html?id=' + p.id + '">' +
+        '<div class="asli-sr-img"><img src="' + ASLI.productImg(p) + '" alt="' + escAttr(p.name) + '"></div>' +
+        '<div><div class="asli-sr-name">' + p.name + '</div>' +
+        '<div class="asli-sr-meta">' + p.region + ' · ' + p.category + '</div></div>' +
+        '<div class="asli-sr-price">' + ASLI.money(p.price) + '</div></a>';
+    }).join('') +
+      (list.length > 8 ? '<div class="asli-search-hint" style="padding:14px;">+' + (list.length - 8) + ' more — keep typing to narrow it down</div>' : '');
+  }
+  function openSearch() {
+    var s = document.getElementById('asliSearch'); if (!s) return;
+    s.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var inp = document.getElementById('asliSearchInput');
+    if (inp) { searchRender(inp.value); setTimeout(function () { inp.focus(); }, 60); }
+  }
+  function closeSearch() {
+    var s = document.getElementById('asliSearch'); if (s) s.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  ASLI.openSearch = openSearch;
+  ASLI.closeSearch = closeSearch;
+
   /* ---------- cart count badges ---------- */
   function syncCount() {
     var c = ASLI.cart.count();
@@ -505,6 +589,7 @@
     panel.innerHTML =
       '<div class="mobile-menu-head"><div class="logo" style="font-family:\'Fraunces\',serif;font-size:1.6rem;">Aṣli</div>' +
       '<button class="mobile-menu-close" data-asli-menu-close aria-label="Close menu">×</button></div>' +
+      '<a href="#" data-search-open>Search <span class="tf">ⵔⵣⵓ</span></a>' +
       linkHtml +
       '<a href="cart.html">Cart <span class="tf">ⵜⴰⵙⵙⵉⵍⵜ</span></a>' +
       '<a href="contact.html">Contact <span class="tf">ⵏⴰⵡⵍ</span></a>';
@@ -563,6 +648,12 @@
       // close drawer / overlay
       if (e.target.closest('[data-asli-close]')) { closeDrawer(); return; }
 
+      // search: open / close (close on the × button or a click on the backdrop itself)
+      if (e.target.closest('[data-search-open]')) { e.preventDefault(); openSearch(); return; }
+      if (e.target.closest('[data-search-close]')) { closeSearch(); return; }
+      var sEl = document.getElementById('asliSearch');
+      if (sEl && sEl.classList.contains('open') && e.target === sEl) { closeSearch(); return; }
+
       // open cart: explicit attr OR nav cart button (the one holding .cart-count)
       var openBtn = e.target.closest('[data-cart-open]');
       if (!openBtn) {
@@ -610,12 +701,22 @@
     });
   }
 
+  /* ---------- wire existing nav "Search" buttons to the overlay ---------- */
+  function wireSearchTriggers() {
+    document.querySelectorAll('.nav-icons button').forEach(function (b) {
+      if (b.querySelector('.cart-count')) return;        // that's the cart button
+      if (/search/i.test(b.textContent)) { b.onclick = null; b.setAttribute('data-search-open', ''); }
+    });
+  }
+
   /* ---------- boot ---------- */
   function boot() {
     injectStyles();
     fixImages();
     buildDrawer();
+    buildSearch();
     buildMobileMenu();
+    wireSearchTriggers();
     wireClicks();
     wireAccordions();
     wireNewsletter();
@@ -623,9 +724,9 @@
     syncCount();
     document.addEventListener('asli:cart', function () { syncCount(); renderDrawer(); });
     window.addEventListener('storage', function (e) { if (e.key === CART_KEY) { syncCount(); renderDrawer(); document.dispatchEvent(new CustomEvent('asli:cart', { detail: { items: read() } })); } });
-    // Escape closes drawer/menu
+    // Escape closes drawer/menu/search
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') { closeDrawer(); var mm = document.getElementById('asliMobileMenu'); if (mm) { mm.classList.remove('open'); document.body.style.overflow = ''; } }
+      if (e.key === 'Escape') { closeDrawer(); closeSearch(); var mm = document.getElementById('asliMobileMenu'); if (mm) { mm.classList.remove('open'); document.body.style.overflow = ''; } }
     });
   }
 
